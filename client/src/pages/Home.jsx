@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { ArrowRight, Settings, ShieldCheck, Factory, Plus } from 'lucide-react';
+import { ArrowRight, Settings, ShieldCheck, Factory, Plus, ChevronDown } from 'lucide-react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -153,6 +153,24 @@ const Home = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 1 }}
+          className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-20 cursor-pointer group"
+          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
+        >
+          <div className="w-8 h-12 border-2 border-white/50 group-hover:border-white/80 rounded-[20px] flex justify-center pt-2 transition-colors">
+            <motion.div 
+              animate={{ y: [0, 12, 0], opacity: [1, 0, 1] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+              className="w-1 h-3 bg-white/50 group-hover:bg-white/80 rounded-full transition-colors"
+            />
+          </div>
+          <span className="text-white/50 group-hover:text-white/80 transition-colors text-xs font-semibold tracking-wide">Scroll To Continue</span>
+        </motion.div>
       </section>
 
       {/* Stats Section */}
