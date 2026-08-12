@@ -44,11 +44,27 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* Language Selector */}
-              <div className="flex items-center pl-6 border-l border-white/20 h-6 cursor-pointer hover:opacity-80 transition-opacity">
-                <img src="https://flagcdn.com/w20/nl.png" alt="Dutch" className="w-5 h-5 rounded-full object-cover shadow-sm mr-2" />
-                <span className="text-white text-xs font-semibold tracking-wider mr-1">LN</span>
-                <ChevronDown className="h-4 w-4 text-white" />
+              {/* Buy Products Button */}
+              <div className="flex items-center pl-6 border-l border-white/20">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <a
+                    href="https://macro-project-five.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative flex items-center justify-center overflow-hidden bg-gradient-to-r from-maco-red to-red-700 text-white text-xs font-black tracking-[0.2em] px-6 py-2.5 rounded-full shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] border border-red-500/50 group transition-shadow duration-300"
+                  >
+                    <span className="relative z-10 flex items-center gap-2">
+                      BUY PRODUCTS
+                      <svg className="w-3.5 h-3.5 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                      </svg>
+                    </span>
+                    <div className="absolute inset-0 bg-white/20 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                  </a>
+                </motion.div>
               </div>
             </nav>
 
@@ -88,11 +104,25 @@ const Navbar = () => {
                     {link.name}
                   </Link>
                 ))}
-                {/* Mobile Language Selector */}
-                <div className="mt-4 pt-4 border-t border-white/10 px-3 flex items-center">
-                  <img src="https://flagcdn.com/w20/nl.png" alt="Dutch" className="w-5 h-5 rounded-full object-cover shadow-sm mr-3" />
-                  <span className="text-white text-sm font-semibold tracking-wider mr-1">LN</span>
-                  <ChevronDown className="h-4 w-4 text-white" />
+                {/* Mobile Buy Products Button */}
+                <div className="mt-4 pt-4 border-t border-white/10 px-3 pb-2">
+                  <motion.div whileTap={{ scale: 0.98 }}>
+                    <a
+                      href="https://macro-project-five.vercel.app/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setIsOpen(false)}
+                      className="relative flex justify-center items-center overflow-hidden w-full bg-gradient-to-r from-maco-red to-red-700 text-white py-3.5 rounded-xl text-sm font-black tracking-[0.2em] shadow-[0_0_15px_rgba(220,38,38,0.3)] border border-red-500/30 group"
+                    >
+                      <span className="relative z-10 flex items-center gap-2">
+                        BUY PRODUCTS
+                        <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                        </svg>
+                      </span>
+                      <div className="absolute inset-0 bg-white/10 translate-y-[100%] group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                    </a>
+                  </motion.div>
                 </div>
               </div>
             </motion.div>

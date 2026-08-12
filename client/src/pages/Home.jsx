@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useInView, animate } from 'framer-motion';
+import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { ArrowRight, Settings, ShieldCheck, Factory } from 'lucide-react';
+import { ArrowRight, Settings, ShieldCheck, Factory, Plus } from 'lucide-react';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -29,6 +29,72 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }) => {
   return <span ref={ref}>{value}{suffix}</span>;
 };
 
+const faqs = [
+  {
+    question: "What industries does MACO INDIA primarily serve?",
+    answer: "We primarily serve the automotive sector, focusing on OEMs (Original Equipment Manufacturers) and the aftermarket. However, our precision engineering capabilities allow us to cater to specialized industrial and agricultural machinery as well."
+  },
+  {
+    question: "Do you offer highly customized precision components?",
+    answer: "Yes, our state-of-the-art facilities and imported machinery enable us to manufacture highly customized components tailored to exact client specifications, ensuring zero-defect precision."
+  },
+  {
+    question: "What quality standards do your manufacturing processes follow?",
+    answer: "We strictly adhere to global quality standards. Every component undergoes rigorous metallurgical, dimensional, and surface finish testing to guarantee maximum durability and reliability."
+  },
+  {
+    question: "How can I request a quote or place a bulk order?",
+    answer: (
+      <>
+        You can easily browse our entire catalog and view all item prices directly on our dedicated purchasing website. <a href="https://macro-project-five.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-maco-red hover:text-red-400 font-bold underline underline-offset-4 transition-colors">Visit our online store</a> to securely place orders or request bulk quotes in just a few clicks.
+      </>
+    )
+  }
+];
+
+const FAQItem = ({ question, answer, index }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="border-b border-white/10"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full py-6 flex justify-between items-center text-left focus:outline-none group"
+      >
+        <h3 className="text-lg md:text-xl font-bold text-gray-200 group-hover:text-maco-red transition-colors pr-8">
+          {question}
+        </h3>
+        <span className="flex-shrink-0 bg-white/5 rounded-full p-2 group-hover:bg-maco-red/20 group-hover:text-maco-red transition-colors border border-transparent group-hover:border-maco-red/30">
+          <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.3, ease: "circOut" }}>
+            <Plus className={`h-5 w-5 ${isOpen ? 'text-maco-red' : 'text-gray-400 group-hover:text-maco-red'}`} />
+          </motion.div>
+        </span>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden"
+          >
+            <p className="pb-6 text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl">
+              {answer}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
+
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(true);
@@ -46,6 +112,16 @@ const Home = () => {
     };
     fetchProducts();
   }, []);
+
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slides = ['/maco-1.png', '/maco-2.png', '/maco-3.png', '/maco-4.png'];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % slides.length);
+    }, 4000); // Change image every 4 seconds
+    return () => clearInterval(timer);
+  }, [slides.length]);
 
   return (
     <div className="w-full">
@@ -256,8 +332,28 @@ const Home = () => {
               className="lg:w-1/2"
             >
               <div className="relative">
-                <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop" alt="Maco Factory" className="rounded-2xl shadow-2xl object-cover h-[500px] w-full border border-white/10" />
-                <div className="absolute -bottom-6 -right-6 bg-maco-red text-white p-8 rounded-2xl shadow-xl">
+                <div className="w-full rounded-2xl shadow-2xl border border-white/10 overflow-hidden bg-[#1a1c23] relative">
+                  {/* Invisible spacer image to set container height based on the image aspect ratio */}
+                  <img src={slides[0]} alt="Spacer" className="w-full h-auto opacity-0 invisible" />
+                  
+                  <AnimatePresence>
+                    {slides.map((slide, index) => (
+                      index === currentSlide && (
+                        <motion.img
+                          key={slide}
+                          src={slide}
+                          initial={{ opacity: 0, scale: 1.05 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.8, ease: "easeInOut" }}
+                          alt={`Maco Factory ${index + 1}`}
+                          className="absolute top-0 left-0 h-full w-full object-cover"
+                        />
+                      )
+                    ))}
+                  </AnimatePresence>
+                </div>
+                <div className="absolute -bottom-6 -right-6 bg-maco-red text-white p-8 rounded-2xl shadow-xl z-20">
                   <p className="text-4xl font-black">50+</p>
                   <p className="text-sm font-medium uppercase tracking-wider">Years of Trust</p>
                 </div>
@@ -282,6 +378,25 @@ const Home = () => {
                 Read our full story <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-maco-red/5 rounded-full blur-[120px] pointer-events-none"></div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-white tracking-wide">FREQUENTLY ASKED QUESTIONS</h2>
+            <div className="mt-4 h-1 w-20 bg-maco-red mx-auto"></div>
+          </div>
+          
+          <div className="mt-8 border-t border-white/10">
+            {faqs.map((faq, index) => (
+              <FAQItem key={index} index={index} question={faq.question} answer={faq.answer} />
+            ))}
           </div>
         </div>
       </section>
