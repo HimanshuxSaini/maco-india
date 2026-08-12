@@ -3,6 +3,7 @@ import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, Settings2 } from 'lucide-react';
+import { products as staticProducts } from '../data/products';
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -12,17 +13,12 @@ const Products = () => {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get('http://localhost:5000/api/products');
+        if (data.length === 0) throw new Error('Database empty, using fallback');
         setProducts(data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching products, using fallback:', error);
-        const mockProducts = [
-          { _id: '1', title: 'Piston Pin', slug: 'piston-pin', image: '/maco-1.png', description: 'High precision piston pin designed for maximum performance.' },
-          { _id: '2', title: 'Crank Pin', slug: 'crank-pin', image: '/maco-2.png', description: 'Durable crank pin for automotive applications.' },
-          { _id: '3', title: 'Connecting Rod', slug: 'connecting-rod', image: '/maco-3.png', description: 'Heavy duty connecting rod.' },
-          { _id: '4', title: 'Custom Component', slug: 'custom-component', image: '/maco-4.png', description: 'Special customized component based on client requirements.' }
-        ];
-        setProducts(mockProducts);
+        setProducts(staticProducts);
         setLoading(false);
       }
     };

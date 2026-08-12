@@ -3,6 +3,7 @@ import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { ArrowRight, Settings, ShieldCheck, Factory, Plus, ChevronDown } from 'lucide-react';
+import { products as staticProducts } from '../data/products';
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -103,18 +104,13 @@ const Home = () => {
     const fetchProducts = async () => {
       try {
         const { data } = await axios.get('http://localhost:5000/api/products');
+        if (data.length === 0) throw new Error('Database empty, using fallback');
         setProducts(data);
         setLoadingProducts(false);
       } catch (error) {
         console.error('Error fetching products, using fallback data:', error);
         // Fallback data if server is down
-        const mockProducts = [
-          { _id: '1', title: 'Piston Pin', slug: 'piston-pin', image: '/maco-1.png' },
-          { _id: '2', title: 'Crank Pin', slug: 'crank-pin', image: '/maco-2.png' },
-          { _id: '3', title: 'Connecting Rod', slug: 'connecting-rod', image: '/maco-3.png' },
-          { _id: '4', title: 'Custom Component', slug: 'custom-component', image: '/maco-4.png' }
-        ];
-        setProducts(mockProducts);
+        setProducts(staticProducts);
         setLoadingProducts(false);
       }
     };

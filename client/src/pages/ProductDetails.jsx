@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { ArrowLeft, CheckCircle, Settings2 } from 'lucide-react';
+import { products as staticProducts } from '../data/products';
 
 const ProductDetails = () => {
   const { slug } = useParams();
@@ -14,17 +15,12 @@ const ProductDetails = () => {
     const fetchProduct = async () => {
       try {
         const { data } = await axios.get(`http://localhost:5000/api/products/${slug}`);
+        if (!data) throw new Error('Product not found in DB, using fallback');
         setProduct(data);
         setLoading(false);
       } catch (error) {
         console.error('Error fetching product, using fallback:', error);
-        const mockProducts = [
-          { _id: '1', title: 'Piston Pin', slug: 'piston-pin', image: '/maco-1.png', description: 'High precision piston pin designed for maximum performance.', features: ['High durability', 'Precision engineered', 'Heat treated'] },
-          { _id: '2', title: 'Crank Pin', slug: 'crank-pin', image: '/maco-2.png', description: 'Durable crank pin for automotive applications.', features: ['Wear resistant', 'Custom sizes available'] },
-          { _id: '3', title: 'Connecting Rod', slug: 'connecting-rod', image: '/maco-3.png', description: 'Heavy duty connecting rod.', features: ['Forged steel', 'High load capacity'] },
-          { _id: '4', title: 'Custom Component', slug: 'custom-component', image: '/maco-4.png', description: 'Special customized component based on client requirements.', features: ['Client specific design', 'Rigorous testing'] }
-        ];
-        const found = mockProducts.find(p => p.slug === slug);
+        const found = staticProducts.find(p => p.slug === slug);
         if (found) {
           setProduct(found);
         } else {
