@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, useInView, animate } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { ArrowRight, Settings, ShieldCheck, Factory } from 'lucide-react';
 
 const fadeIn = {
@@ -29,6 +30,23 @@ const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }) => {
 };
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+  const [loadingProducts, setLoadingProducts] = useState(true);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const { data } = await axios.get('http://localhost:5000/api/products');
+        setProducts(data);
+        setLoadingProducts(false);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setLoadingProducts(false);
+      }
+    };
+    fetchProducts();
+  }, []);
+
   return (
     <div className="w-full">
       {/* Hero Section */}
@@ -114,6 +132,83 @@ const Home = () => {
             </motion.div>
 
           </div>
+        </div>
+      </section>
+
+      {/* Featured Products Section */}
+      <section className="py-20 bg-[#111316]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-white">Our Products</h2>
+            <div className="mt-2 h-1 w-20 bg-maco-red mx-auto"></div>
+          </div>
+          
+          {loadingProducts ? (
+            <div className="flex justify-center items-center h-40">
+              <div className="animate-spin rounded-full h-12 w-12 border-t-4 border-b-4 border-maco-red"></div>
+            </div>
+          ) : (
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {products.map((product, idx) => (
+                <Link 
+                  key={product._id}
+                  to={`/products/${product.slug}`}
+                  className="block group"
+                >
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.05 }}
+                    className="bg-[#1a1c23] rounded-xl overflow-hidden border border-[#ED1C24]/30 group-hover:border-[#ED1C24] group-hover:shadow-[0_0_15px_rgba(237,28,36,0.3)] transition-all duration-300 flex flex-col items-center justify-center p-6 text-center h-full"
+                  >
+                    <div className="h-32 w-full flex items-center justify-center mb-4 relative z-10 bg-[#f4f4f4] rounded-lg p-2 shadow-inner">
+                      <img 
+                        src={product.image || `https://placehold.co/200x200/f4f4f4/1a1c23?text=${encodeURIComponent(product.title)}`}
+                        alt={product.title}
+                        className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110 mix-blend-multiply"
+                        onError={(e) => {
+                          e.target.onerror = null; 
+                          e.target.src = `https://placehold.co/200x200/ffffff/1a1c23?text=${encodeURIComponent(product.title)}`;
+                        }}
+                      />
+                    </div>
+                    <h3 className="text-sm font-semibold text-white group-hover:text-maco-red transition-colors relative z-10">
+                      {product.title}
+                    </h3>
+                  </motion.div>
+                </Link>
+              ))}
+              
+              {/* Premium Read More Card */}
+              <Link 
+                to="/products"
+                className="block group h-full"
+              >
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 11 * 0.05 }}
+                  className="bg-gradient-to-br from-[#1a1c23] to-[#111316] rounded-xl overflow-hidden border border-[#ED1C24]/20 group-hover:border-[#ED1C24] shadow-lg group-hover:shadow-[0_0_20px_rgba(237,28,36,0.25)] transition-all duration-500 flex flex-col items-center justify-center p-6 text-center h-full relative"
+                >
+                  {/* Subtle red glow in the background */}
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-maco-red/10 rounded-full blur-3xl group-hover:bg-maco-red/20 transition-all duration-500 pointer-events-none"></div>
+                  
+                  <div className="h-16 w-16 mb-6 rounded-full bg-[#ED1C24]/10 flex items-center justify-center group-hover:bg-[#ED1C24] transition-colors duration-500 z-10">
+                    <ArrowRight className="h-8 w-8 text-maco-red group-hover:text-white transition-all duration-500 group-hover:translate-x-1" />
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-white mb-2 z-10">
+                    Explore Full Catalog
+                  </h3>
+                  <p className="text-xs text-gray-400 group-hover:text-gray-300 transition-colors z-10">
+                    View detailed specifications, sizes, and working mechanisms.
+                  </p>
+                </motion.div>
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 

@@ -1,4 +1,5 @@
 import Product from '../models/Product.js';
+import mongoose from 'mongoose';
 
 // @desc    Fetch all products
 // @route   GET /api/products
@@ -12,55 +13,95 @@ export const getProducts = async (req, res) => {
     }
     
     if (products.length === 0) {
-      // Mock Data based on actual Maco India Products
+      // Mock Data based on user screenshots
       products = [
         {
           _id: '1',
-          title: 'Connecting Rod',
-          slug: 'connecting-rod',
-          description: 'Connecting rod is a vital component of any internal combustion engine. This is the component which carries the power from the piston to the crank-shaft and thus giving movement to the engine.',
-          features: ['High Tensile Strength', 'Precision Engineered', 'Durability'],
-          image: '/images/products/connecting-rod.jpg'
+          title: 'Piston Pins (Gudgeon Pins / Wrist Pins)',
+          slug: 'piston-pins',
+          description: 'Connects the piston to the connecting rod.',
+          features: ['High Strength', 'Precision Engineered'],
+          image: '/images/products/piston-pins.jpeg'
         },
         {
           _id: '2',
-          title: 'Crank Pin',
-          slug: 'crank-pin',
-          description: 'Crank Pin is a high precision item, having round cylindrical shape. It can be of hole or solid type, but must have a high surface finish, to serve as running surface for needle bearings.',
-          features: ['High Surface Finish', 'Wear Resistant', 'Accurate Dimensions'],
-          image: '/images/products/crank-pin.jpg'
+          title: 'Piston Pins (Various Sizes)',
+          slug: 'piston-pins-various',
+          description: 'Engine piston connection component.',
+          features: ['Multiple Sizes', 'High Durability'],
+          image: '/images/products/piston-pins-various.jpeg'
         },
         {
           _id: '3',
-          title: 'Gudgeon Pins',
-          slug: 'gudgeon-pins',
-          description: 'Gudgeon Pins, mostly in American nomenclature known as wrist pins, are an integral part of all types of internal combustion engines, Otto or diesel types, 2 strokes and 4 types.',
-          features: ['Robust Design', 'High Tolerance', 'Heat Treated'],
-          image: '/images/products/gudgeon-pin.jpg'
+          title: 'CONNECTING ROD KITS FOR TWO-WHEELERS',
+          slug: 'connecting-rod-kits',
+          description: 'Connects pistons to the crankshaft.',
+          features: ['High Tensile Strength', 'Precision Engineered'],
+          image: '/images/products/connecting-rod-kits.jpeg'
         },
         {
           _id: '4',
-          title: 'Brake Pads',
-          slug: 'brake-pads',
-          description: 'A brake pad refers to a piece of friction-generating material that pushes itself on to the rotor or disc of your car, thereby enabling it to slow down and stop.',
-          features: ['High Friction Coefficient', 'Low Wear', 'Noise Reduction'],
-          image: '/images/products/brake-pads.jpg'
+          title: 'Automatic Transmission Steel Clutch Plates',
+          slug: 'auto-trans-steel-clutch-plates',
+          description: 'Used inside automatic transmission clutch packs.',
+          features: ['Heat Resistant', 'High Friction'],
+          image: '/images/products/steel-clutch-plates.jpeg'
         },
         {
           _id: '5',
-          title: 'Brake Shoe',
-          slug: 'brake-shoe',
-          description: 'Brake shoes are part of a drum brake system. Brake shoes are crescent-shaped components with a rough friction material on one side. They sit inside of a brake drum.',
-          features: ['Excellent Stopping Power', 'Long Lasting', 'Asbestos Free'],
-          image: '/images/products/brake-shoe.jpg'
+          title: 'Engine Valves (Intake & Exhaust Valves)',
+          slug: 'engine-valves',
+          description: 'Controls air/fuel intake and exhaust gases.',
+          features: ['Heat Resistant', 'Durable'],
+          image: '/images/products/engine-valves.jpeg'
         },
         {
           _id: '6',
-          title: 'Clutch Plates',
-          slug: 'clutch-plates',
-          description: 'The clutch plate is a disc that serves to create friction between itself, the flywheel on one side, and the pressure plate on the other.',
-          features: ['Smooth Engagement', 'High Torque Capacity', 'Heat Resistant'],
-          image: '/images/products/clutch-plates.jpg'
+          title: 'Clutch Assembly / Clutch Pressure Plate',
+          slug: 'clutch-assembly',
+          description: 'Transfers engine power to the transmission.',
+          features: ['Smooth Engagement', 'High Torque Capacity'],
+          image: '/images/products/clutch-assembly.jpeg'
+        },
+        {
+          _id: '7',
+          title: 'Motorcycle Clutch Friction Plates',
+          slug: 'motorcycle-clutch-friction-plates',
+          description: 'Provides friction for clutch engagement.',
+          features: ['Low Wear', 'Consistent Performance'],
+          image: '/images/products/clutch-friction-plates.jpeg'
+        },
+        {
+          _id: '8',
+          title: 'Motorcycle Crankshaft Assembly',
+          slug: 'motorcycle-crankshaft-assembly',
+          description: 'Converts piston motion into rotational motion.',
+          features: ['Perfectly Balanced', 'High Strength'],
+          image: '/images/products/crankshaft-assembly.jpeg'
+        },
+        {
+          _id: '9',
+          title: 'Disc Brake Pads',
+          slug: 'disc-brake-pads',
+          description: 'Provides braking friction against the disc rotor.',
+          features: ['High Friction Coefficient', 'Low Noise'],
+          image: '/images/products/disc-brake-pads.jpeg'
+        },
+        {
+          _id: '10',
+          title: 'Brake Shoes',
+          slug: 'brake-shoes',
+          description: 'Used in drum brake systems.',
+          features: ['Excellent Stopping Power', 'Asbestos Free'],
+          image: '/images/products/brake-shoes.jpeg'
+        },
+        {
+          _id: '11',
+          title: 'Brake Shoe Linings / Drum Brake Shoes',
+          slug: 'brake-shoe-linings',
+          description: 'Replacement brake shoes for drum brakes.',
+          features: ['Long Lasting', 'High Performance'],
+          image: '/images/products/brake-shoe-linings.jpeg'
         }
       ];
     }
@@ -101,56 +142,96 @@ export const getProductById = async (req, res) => {
   }
 };
 
-import mongoose from 'mongoose';
-async function getMockProducts() {
+// Helper function to get mock products
+const getMockProducts = async () => {
   return [
     {
       _id: '1',
-      title: 'Connecting Rod',
-      slug: 'connecting-rod',
-      description: 'Connecting rod is a vital component of any internal combustion engine. This is the component which carries the power from the piston to the crank-shaft and thus giving movement to the engine.',
-      features: ['High Tensile Strength', 'Precision Engineered', 'Durability'],
-      image: '/images/products/connecting-rod.jpg'
+      title: 'Piston Pins (Gudgeon Pins / Wrist Pins)',
+      slug: 'piston-pins',
+      description: 'Connects the piston to the connecting rod.',
+      features: ['High Strength', 'Precision Engineered'],
+      image: '/images/products/piston-pins.jpeg'
     },
     {
       _id: '2',
-      title: 'Crank Pin',
-      slug: 'crank-pin',
-      description: 'Crank Pin is a high precision item, having round cylindrical shape. It can be of hole or solid type, but must have a high surface finish, to serve as running surface for needle bearings.',
-      features: ['High Surface Finish', 'Wear Resistant', 'Accurate Dimensions'],
-      image: '/images/products/crank-pin.jpg'
+      title: 'Piston Pins (Various Sizes)',
+      slug: 'piston-pins-various',
+      description: 'Engine piston connection component.',
+      features: ['Multiple Sizes', 'High Durability'],
+      image: '/images/products/piston-pins-various.jpeg'
     },
     {
       _id: '3',
-      title: 'Gudgeon Pins',
-      slug: 'gudgeon-pins',
-      description: 'Gudgeon Pins, mostly in American nomenclature known as wrist pins, are an integral part of all types of internal combustion engines, Otto or diesel types, 2 strokes and 4 types.',
-      features: ['Robust Design', 'High Tolerance', 'Heat Treated'],
-      image: '/images/products/gudgeon-pin.jpg'
+      title: 'CONNECTING ROD KITS FOR TWO-WHEELERS',
+      slug: 'connecting-rod-kits',
+      description: 'Connects pistons to the crankshaft.',
+      features: ['High Tensile Strength', 'Precision Engineered'],
+      image: '/images/products/connecting-rod-kits.jpeg'
     },
     {
       _id: '4',
-      title: 'Brake Pads',
-      slug: 'brake-pads',
-      description: 'A brake pad refers to a piece of friction-generating material that pushes itself on to the rotor or disc of your car, thereby enabling it to slow down and stop.',
-      features: ['High Friction Coefficient', 'Low Wear', 'Noise Reduction'],
-      image: '/images/products/brake-pads.jpg'
+      title: 'Automatic Transmission Steel Clutch Plates',
+      slug: 'auto-trans-steel-clutch-plates',
+      description: 'Used inside automatic transmission clutch packs.',
+      features: ['Heat Resistant', 'High Friction'],
+      image: '/images/products/steel-clutch-plates.jpeg'
     },
     {
       _id: '5',
-      title: 'Brake Shoe',
-      slug: 'brake-shoe',
-      description: 'Brake shoes are part of a drum brake system. Brake shoes are crescent-shaped components with a rough friction material on one side. They sit inside of a brake drum.',
-      features: ['Excellent Stopping Power', 'Long Lasting', 'Asbestos Free'],
-      image: '/images/products/brake-shoe.jpg'
+      title: 'Engine Valves (Intake & Exhaust Valves)',
+      slug: 'engine-valves',
+      description: 'Controls air/fuel intake and exhaust gases.',
+      features: ['Heat Resistant', 'Durable'],
+      image: '/images/products/engine-valves.jpeg'
     },
     {
       _id: '6',
-      title: 'Clutch Plates',
-      slug: 'clutch-plates',
-      description: 'The clutch plate is a disc that serves to create friction between itself, the flywheel on one side, and the pressure plate on the other.',
-      features: ['Smooth Engagement', 'High Torque Capacity', 'Heat Resistant'],
-      image: '/images/products/clutch-plates.jpg'
+      title: 'Clutch Assembly / Clutch Pressure Plate',
+      slug: 'clutch-assembly',
+      description: 'Transfers engine power to the transmission.',
+      features: ['Smooth Engagement', 'High Torque Capacity'],
+      image: '/images/products/clutch-assembly.jpeg'
+    },
+    {
+      _id: '7',
+      title: 'Motorcycle Clutch Friction Plates',
+      slug: 'motorcycle-clutch-friction-plates',
+      description: 'Provides friction for clutch engagement.',
+      features: ['Low Wear', 'Consistent Performance'],
+      image: '/images/products/clutch-friction-plates.jpeg'
+    },
+    {
+      _id: '8',
+      title: 'Motorcycle Crankshaft Assembly',
+      slug: 'motorcycle-crankshaft-assembly',
+      description: 'Converts piston motion into rotational motion.',
+      features: ['Perfectly Balanced', 'High Strength'],
+      image: '/images/products/crankshaft-assembly.jpeg'
+    },
+    {
+      _id: '9',
+      title: 'Disc Brake Pads',
+      slug: 'disc-brake-pads',
+      description: 'Provides braking friction against the disc rotor.',
+      features: ['High Friction Coefficient', 'Low Noise'],
+      image: '/images/products/disc-brake-pads.jpeg'
+    },
+    {
+      _id: '10',
+      title: 'Brake Shoes',
+      slug: 'brake-shoes',
+      description: 'Used in drum brake systems.',
+      features: ['Excellent Stopping Power', 'Asbestos Free'],
+      image: '/images/products/brake-shoes.jpeg'
+    },
+    {
+      _id: '11',
+      title: 'Brake Shoe Linings / Drum Brake Shoes',
+      slug: 'brake-shoe-linings',
+      description: 'Replacement brake shoes for drum brakes.',
+      features: ['Long Lasting', 'High Performance'],
+      image: '/images/products/brake-shoe-linings.jpeg'
     }
   ];
-}
+};

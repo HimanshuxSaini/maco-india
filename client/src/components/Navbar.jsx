@@ -22,8 +22,9 @@ const Navbar = () => {
         <div className="px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-2xl font-black text-maco-red tracking-tight">
-                MACO<sup className="text-[10px] ml-0.5 relative -top-3">&reg;</sup>
+              <Link to="/" className="flex items-center gap-3">
+                <img src="/maco logo white.png" alt="MACO Logo" className="h-8 md:h-10 w-auto object-contain" />
+                <span className="text-xl md:text-2xl font-black text-maco-red tracking-widest">MACO</span>
               </Link>
             </div>
             
