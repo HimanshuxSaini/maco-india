@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply bg-[#0a0a0a] text-gray-300;
+    @apply bg-gray-50 text-gray-900 dark:bg-[#0a0a0a] dark:text-gray-300 transition-colors duration-300;
   }
 }

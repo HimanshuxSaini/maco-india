@@ -4,7 +4,7 @@ import { MapPin, Phone, Mail, ArrowRight, Clock, Globe, Share2, Link as LinkIcon
 
 const Footer = () => {
   return (
-    <footer className="bg-[#0a0a0a] border-t border-white/10 text-white pt-20 pb-8 relative overflow-hidden">
+    <footer className="bg-gray-50 dark:bg-[#0a0a0a] border-t border-gray-200 dark:border-white/10 text-gray-900 dark:text-white pt-20 pb-8 relative overflow-hidden">
       {/* Subtle background glow */}
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-maco-red/5 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -21,7 +21,7 @@ const Footer = () => {
             </p>
             <div className="flex space-x-3">
               {[Globe, Share2, LinkIcon, MessageSquare].map((Icon, idx) => (
-                <a key={idx} href="#" className="h-10 w-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-maco-red hover:text-white hover:shadow-[0_0_15px_rgba(237,28,36,0.4)] transition-all duration-300 hover:-translate-y-1">
+                <a key={idx} href="#" className="h-10 w-10 rounded-full bg-gray-200 dark:bg-white/5 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-maco-red hover:text-white hover:shadow-[0_0_15px_rgba(237,28,36,0.4)] transition-all duration-300 hover:-translate-y-1">
                   <Icon className="h-5 w-5" />
                 </a>
               ))}
@@ -30,8 +30,8 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white tracking-wide">Quick Links</h4>
-            <ul className="space-y-4 text-sm text-gray-400">
+            <h4 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white tracking-wide">Quick Links</h4>
+            <ul className="space-y-4 text-sm text-gray-600 dark:text-gray-400">
               {[
                 { name: 'About Us', path: '/about' },
                 { name: 'Products & Catalog', path: '/products' },
@@ -51,55 +51,55 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white tracking-wide">Contact Us</h4>
-            <ul className="space-y-5 text-sm text-gray-400">
+            <h4 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white tracking-wide">Contact Us</h4>
+            <ul className="space-y-5 text-sm text-gray-600 dark:text-gray-400">
               <li className="flex items-start group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
+                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <MapPin className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-200 transition-colors pt-1 text-xs">
-                  <strong className="text-white">REGD. HEAD OFFICE:</strong><br />
+                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors pt-1 text-xs">
+                  <strong className="text-gray-900 dark:text-white">REGD. HEAD OFFICE:</strong><br />
                   2-A/3, Asaf Ali Rd, Old Delhi, Turkman Gate, Chandni Chowk, New Delhi, Delhi, 110002
                 </span>
               </li>
               <li className="flex items-start group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
+                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <Factory className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-200 transition-colors pt-1 text-xs">
-                  <strong className="text-white">WORK OFFICE:</strong><br />
+                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors pt-1 text-xs">
+                  <strong className="text-gray-900 dark:text-white">WORK OFFICE:</strong><br />
                   E-24 Industrial Area, Sonepat - 131001 (Haryana), India
                 </span>
               </li>
               <li className="flex items-center group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
+                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <Phone className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-200 transition-colors">+91 11 23263672, 23273274</span>
+                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">+91 11 23263672, 23273274</span>
               </li>
               <li className="flex items-center group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
+                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <Mail className="h-5 w-5 text-maco-red" />
                 </div>
                 <a href="mailto:macoho@maco-india.com" className="hover:text-maco-red transition-colors">macoho@maco-india.com</a>
               </li>
               <li className="flex items-center group">
-                <div className="bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
+                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <Clock className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-200 transition-colors">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">Mon - Sat: 9:00 AM - 6:00 PM</span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter & Map */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-white tracking-wide">Stay Updated</h4>
+            <h4 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white tracking-wide">Stay Updated</h4>
             <form className="flex mb-8" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
                 placeholder="Email address" 
-                className="bg-[#1a1c23] border border-white/10 text-sm text-white px-4 py-3 w-full rounded-l-lg focus:outline-none focus:border-maco-red/50 transition-colors placeholder:text-gray-600" 
+                className="bg-white dark:bg-[#1a1c23] border border-gray-200 dark:border-white/10 text-sm text-gray-900 dark:text-white px-4 py-3 w-full rounded-l-lg focus:outline-none focus:border-maco-red/50 transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600" 
               />
               <button 
                 type="submit" 
@@ -109,12 +109,12 @@ const Footer = () => {
               </button>
             </form>
 
-            <h4 className="text-sm font-semibold mb-3 text-gray-400 uppercase tracking-widest">Our Locations</h4>
+            <h4 className="text-sm font-semibold mb-3 text-gray-600 dark:text-gray-400 uppercase tracking-widest">Our Locations</h4>
             <div className="space-y-4">
               {/* Head Office Map */}
               <div>
                 <p className="text-xs text-maco-red mb-1 font-medium tracking-wide">HEAD OFFICE</p>
-                <div className="w-full h-24 rounded-xl overflow-hidden border border-white/10 relative group">
+                <div className="w-full h-24 rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 relative group">
                   <iframe 
                     src="https://maps.google.com/maps?q=2-A/3,%20Asaf%20Ali%20Rd,%20Old%20Delhi,%20Turkman%20Gate,%20Chandni%20Chowk,%20New%20Delhi,%20Delhi,%20110002&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
@@ -131,7 +131,7 @@ const Footer = () => {
               {/* Work Office Map */}
               <div>
                 <p className="text-xs text-maco-red mb-1 font-medium tracking-wide">WORK OFFICE</p>
-                <div className="w-full h-24 rounded-xl overflow-hidden border border-white/10 relative group">
+                <div className="w-full h-24 rounded-xl overflow-hidden border border-gray-200 dark:border-white/10 relative group">
                   <iframe 
                     src="https://maps.google.com/maps?q=E-24%20Industrial%20Area,%20Sonepat%20-%20131001%20(Haryana),%20India&t=&z=15&ie=UTF8&iwloc=&output=embed" 
                     width="100%" 
@@ -150,7 +150,7 @@ const Footer = () => {
         </div>
         
         {/* Footer Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
+        <div className="border-t border-gray-200 dark:border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-500">
           <p className="mb-4 md:mb-0">COPYRIGHT © {new Date().getFullYear()} Maco Pvt. Ltd. All Rights Reserved.</p>
           <div className="flex space-x-6">
             <a href="#" className="hover:text-maco-red transition-colors">Privacy Policy</a>

@@ -12,7 +12,7 @@ const About = () => {
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-4"
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4"
           >
             About MACO INDIA
           </motion.h1>
@@ -26,7 +26,7 @@ const About = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-6">Our History</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">Our History</h2>
             <div className="prose prose-lg text-gray-300">
               <p className="mb-4">
                 Established in 1956, MACO PRIVATE LIMITED has been developing and manufacturing Piston Pins, Crank Pins and other Pin type items since over three decades.
@@ -46,40 +46,40 @@ const About = () => {
             transition={{ delay: 0.3 }}
             className="relative"
           >
-            <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <div className="aspect-w-16 aspect-h-9 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-white/10">
               <img src="https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?q=80&w=2940&auto=format&fit=crop" alt="Manufacturing" className="w-full h-[400px] object-cover" />
             </div>
-            <div className="absolute -bottom-8 -left-8 bg-black/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/10 hidden md:block">
-              <p className="text-white font-bold text-xl">Since 1956</p>
-              <p className="text-gray-400 text-sm">Pioneering Auto Parts</p>
+            <div className="absolute -bottom-8 -left-8 bg-white dark:bg-black/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-gray-200 dark:border-white/10 hidden md:block">
+              <p className="text-gray-900 dark:text-white font-bold text-xl">Since 1956</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm">Pioneering Auto Parts</p>
             </div>
           </motion.div>
         </div>
 
         {/* Core Values */}
-        <div className="bg-[#111316] rounded-3xl p-12 border border-white/5 shadow-2xl">
-          <h2 className="text-center text-3xl font-bold text-white mb-12">Our Core Values</h2>
+        <div className="bg-gray-100 dark:bg-[#111316] rounded-3xl p-12 border border-white/5 shadow-2xl">
+          <h2 className="text-center text-3xl font-bold text-gray-900 dark:text-white mb-12">Our Core Values</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="mx-auto h-16 w-16 bg-white/10 rounded-full flex items-center justify-center shadow-md mb-6">
                 <Target className="h-8 w-8 text-maco-red" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Precision</h3>
-              <p className="text-gray-400">Engineered to exact specifications for flawless performance.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Precision</h3>
+              <p className="text-gray-600 dark:text-gray-400">Engineered to exact specifications for flawless performance.</p>
             </div>
             <div className="text-center">
               <div className="mx-auto h-16 w-16 bg-white/10 rounded-full flex items-center justify-center shadow-md mb-6">
                 <Shield className="h-8 w-8 text-maco-red" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Quality</h3>
-              <p className="text-gray-400">Uncompromising standards in every component we deliver.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Quality</h3>
+              <p className="text-gray-600 dark:text-gray-400">Uncompromising standards in every component we deliver.</p>
             </div>
             <div className="text-center">
               <div className="mx-auto h-16 w-16 bg-white/10 rounded-full flex items-center justify-center shadow-md mb-6">
                 <Users className="h-8 w-8 text-maco-red" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">Trust</h3>
-              <p className="text-gray-400">Building lasting relationships through reliable delivery.</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">Trust</h3>
+              <p className="text-gray-600 dark:text-gray-400">Building lasting relationships through reliable delivery.</p>
             </div>
           </div>
         </div>

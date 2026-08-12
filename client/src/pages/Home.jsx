@@ -61,18 +61,18 @@ const FAQItem = ({ question, answer, index }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="border-b border-white/10"
+      className="border-b border-gray-200 dark:border-white/10"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="w-full py-6 flex justify-between items-center text-left focus:outline-none group"
       >
-        <h3 className="text-lg md:text-xl font-bold text-gray-200 group-hover:text-maco-red transition-colors pr-8">
+        <h3 className="text-lg md:text-xl font-bold text-gray-800 dark:text-gray-200 group-hover:text-maco-red transition-colors pr-8">
           {question}
         </h3>
-        <span className="flex-shrink-0 bg-white/5 rounded-full p-2 group-hover:bg-maco-red/20 group-hover:text-maco-red transition-colors border border-transparent group-hover:border-maco-red/30">
+        <span className="flex-shrink-0 bg-gray-200 dark:bg-white/5 rounded-full p-2 group-hover:bg-maco-red/20 group-hover:text-maco-red transition-colors border border-transparent group-hover:border-maco-red/30">
           <motion.div animate={{ rotate: isOpen ? 45 : 0 }} transition={{ duration: 0.3, ease: "circOut" }}>
-            <Plus className={`h-5 w-5 ${isOpen ? 'text-maco-red' : 'text-gray-400 group-hover:text-maco-red'}`} />
+            <Plus className={`h-5 w-5 ${isOpen ? 'text-maco-red' : 'text-gray-600 dark:text-gray-400 group-hover:text-maco-red'}`} />
           </motion.div>
         </span>
       </button>
@@ -85,7 +85,7 @@ const FAQItem = ({ question, answer, index }) => {
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl">
+            <p className="pb-6 text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed max-w-3xl">
               {answer}
             </p>
           </motion.div>
@@ -126,7 +126,7 @@ const Home = () => {
   return (
     <div className="w-full">
       {/* Hero Section */}
-      <section className="relative h-screen flex items-start pt-40 md:pt-48 bg-black overflow-hidden">
+      <section className="relative h-screen flex items-start pt-40 md:pt-48 bg-white dark:bg-black overflow-hidden">
         <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-60"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
 
@@ -144,7 +144,7 @@ const Home = () => {
               70+ years of excellence in precision automotive component manufacturing.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link to="/products" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg text-white bg-[#ED1C24] hover:bg-red-700 transition-colors">
+              <Link to="/products" className="inline-flex justify-center items-center px-6 py-3 border border-transparent text-base font-semibold rounded-lg text-gray-900 dark:text-white bg-[#ED1C24] hover:bg-red-700 transition-colors">
                 Explore Products
               </Link>
               <Link to="/contact" className="inline-flex justify-center items-center px-6 py-3 border border-white text-base font-semibold rounded-lg text-white hover:bg-white/10 transition-colors">
@@ -156,7 +156,7 @@ const Home = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-[#111316] py-10 border-t border-b border-white/10 relative z-20">
+      <section className="bg-gray-100 dark:bg-[#111316] py-10 border-t border-b border-gray-200 dark:border-white/10 relative z-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-center divide-y md:divide-y-0 md:divide-x divide-[#ED1C24]/30 text-center">
             
@@ -166,10 +166,10 @@ const Home = () => {
               viewport={{ once: true }}
               className="w-full md:w-1/4 py-6 md:py-2"
             >
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
                 <AnimatedCounter from={1900} to={1956} duration={1.5} />
               </h3>
-              <p className="text-gray-400 text-sm tracking-widest font-medium">Founded</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm tracking-widest font-medium">Founded</p>
             </motion.div>
 
             <motion.div 
@@ -179,10 +179,10 @@ const Home = () => {
               transition={{ delay: 0.1 }}
               className="w-full md:w-1/4 py-6 md:py-2"
             >
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">
                 <AnimatedCounter from={0} to={70} duration={1.5} suffix="+" />
               </h3>
-              <p className="text-gray-400 text-sm tracking-widest font-medium">Years of Experience</p>
+              <p className="text-gray-600 dark:text-gray-400 text-sm tracking-widest font-medium">Years of Experience</p>
             </motion.div>
 
             <motion.div 
@@ -192,8 +192,8 @@ const Home = () => {
               transition={{ delay: 0.2 }}
               className="w-full md:w-1/4 py-6 md:py-2"
             >
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">Precision</h3>
-              <p className="text-gray-400 text-sm tracking-widest font-medium">Engineering</p>
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">Precision</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm tracking-widest font-medium">Engineering</p>
             </motion.div>
 
             <motion.div 
@@ -203,8 +203,8 @@ const Home = () => {
               transition={{ delay: 0.3 }}
               className="w-full md:w-1/4 py-6 md:py-2"
             >
-              <h3 className="text-4xl md:text-5xl font-bold text-white mb-2">Quality</h3>
-              <p className="text-gray-400 text-sm tracking-widest font-medium">Manufacturing</p>
+              <h3 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-2">Quality</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-sm tracking-widest font-medium">Manufacturing</p>
             </motion.div>
 
           </div>
@@ -212,10 +212,10 @@ const Home = () => {
       </section>
 
       {/* Featured Products Section */}
-      <section className="py-20 bg-[#111316]">
+      <section className="py-20 bg-gray-100 dark:bg-[#111316]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white">Our Products</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Our Products</h2>
             <div className="mt-2 h-1 w-20 bg-maco-red mx-auto"></div>
           </div>
           
@@ -236,7 +236,7 @@ const Home = () => {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.05 }}
-                    className="bg-[#1a1c23] rounded-xl overflow-hidden border border-[#ED1C24]/30 group-hover:border-[#ED1C24] group-hover:shadow-[0_0_15px_rgba(237,28,36,0.3)] transition-all duration-300 flex flex-col items-center justify-center p-6 text-center h-full"
+                    className="bg-white dark:bg-[#1a1c23] rounded-xl overflow-hidden border border-[#ED1C24]/30 group-hover:border-[#ED1C24] group-hover:shadow-[0_0_15px_rgba(237,28,36,0.3)] transition-all duration-300 flex flex-col items-center justify-center p-6 text-center h-full"
                   >
                     <div className="h-32 w-full flex items-center justify-center mb-4 relative z-10 bg-[#f4f4f4] rounded-lg p-2 shadow-inner">
                       <img 
@@ -249,7 +249,7 @@ const Home = () => {
                         }}
                       />
                     </div>
-                    <h3 className="text-sm font-semibold text-white group-hover:text-maco-red transition-colors relative z-10">
+                    <h3 className="text-sm font-semibold text-gray-900 dark:text-white group-hover:text-maco-red transition-colors relative z-10">
                       {product.title}
                     </h3>
                   </motion.div>
@@ -289,10 +289,10 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-[#0a0a0a]">
+      <section className="py-20 bg-gray-50 dark:bg-[#0a0a0a]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-white">Why Choose MACO INDIA?</h2>
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white">Why Choose MACO INDIA?</h2>
             <div className="mt-2 h-1 w-20 bg-maco-red mx-auto"></div>
           </div>
 
@@ -308,13 +308,13 @@ const Home = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.2, duration: 0.5 }}
-                className="bg-white/5 rounded-2xl p-8 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all group"
+                className="bg-gray-200 dark:bg-white/5 rounded-2xl p-8 border border-gray-200 dark:border-white/10 hover:bg-gray-300 dark:hover:bg-white/10 hover:border-gray-300 dark:border-white/20 transition-all group"
               >
                 <div className="h-14 w-14 bg-[#ED1C24]/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-[#ED1C24] transition-colors">
-                  <feature.icon className="h-7 w-7 text-[#ED1C24] group-hover:text-white transition-colors" />
+                  <feature.icon className="h-7 w-7 text-[#ED1C24] group-hover:text-gray-900 dark:text-white transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
-                <p className="text-gray-400 leading-relaxed">{feature.desc}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{feature.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -322,7 +322,7 @@ const Home = () => {
       </section>
 
       {/* About Snippet Section */}
-      <section className="py-20 bg-[#111316]">
+      <section className="py-20 bg-gray-100 dark:bg-[#111316]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <motion.div
@@ -332,7 +332,7 @@ const Home = () => {
               className="lg:w-1/2"
             >
               <div className="relative">
-                <div className="w-full rounded-2xl shadow-2xl border border-white/10 overflow-hidden bg-[#1a1c23] relative">
+                <div className="w-full rounded-2xl shadow-2xl border border-gray-200 dark:border-white/10 overflow-hidden bg-white dark:bg-[#1a1c23] relative">
                   {/* Invisible spacer image to set container height based on the image aspect ratio */}
                   <img src={slides[0]} alt="Spacer" className="w-full h-auto opacity-0 invisible" />
                   
@@ -353,7 +353,7 @@ const Home = () => {
                     ))}
                   </AnimatePresence>
                 </div>
-                <div className="absolute -bottom-6 -right-6 bg-maco-red text-white p-8 rounded-2xl shadow-xl z-20">
+                <div className="absolute -bottom-6 -right-6 bg-maco-red text-gray-900 dark:text-white p-8 rounded-2xl shadow-xl z-20">
                   <p className="text-4xl font-black">50+</p>
                   <p className="text-sm font-medium uppercase tracking-wider">Years of Trust</p>
                 </div>
@@ -366,15 +366,15 @@ const Home = () => {
               viewport={{ once: true }}
               className="lg:w-1/2"
             >
-              <h2 className="text-3xl font-bold text-white mb-4">Established in 1956</h2>
+              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Established in 1956</h2>
               <div className="h-1 w-20 bg-maco-red mb-8"></div>
-              <p className="text-lg text-gray-400 mb-6 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
                 MACO PRIVATE LIMITED has been developing and manufacturing Piston Pins, Crank Pins and other Pin type items since over three decades.
               </p>
-              <p className="text-lg text-gray-400 mb-8 leading-relaxed">
+              <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 leading-relaxed">
                 Our company has enjoyed a great deal of growth and this we owe to the confidence our customers have bestowed upon us over the years.
               </p>
-              <Link to="/about" className="inline-flex items-center text-white hover:text-maco-red transition-colors font-bold uppercase tracking-wider text-sm">
+              <Link to="/about" className="inline-flex items-center text-gray-900 dark:text-white hover:text-maco-red transition-colors font-bold uppercase tracking-wider text-sm">
                 Read our full story <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </motion.div>
@@ -383,17 +383,17 @@ const Home = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-24 bg-[#0a0a0a] relative overflow-hidden">
+      <section className="py-24 bg-gray-50 dark:bg-[#0a0a0a] relative overflow-hidden">
         {/* Subtle background glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-maco-red/5 rounded-full blur-[120px] pointer-events-none"></div>
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-white tracking-wide">FREQUENTLY ASKED QUESTIONS</h2>
+            <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-wide">FREQUENTLY ASKED QUESTIONS</h2>
             <div className="mt-4 h-1 w-20 bg-maco-red mx-auto"></div>
           </div>
           
-          <div className="mt-8 border-t border-white/10">
+          <div className="mt-8 border-t border-gray-200 dark:border-white/10">
             {faqs.map((faq, index) => (
               <FAQItem key={index} index={index} question={faq.question} answer={faq.answer} />
             ))}

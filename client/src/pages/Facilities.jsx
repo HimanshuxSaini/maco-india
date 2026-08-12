@@ -11,7 +11,7 @@ const Facilities = () => {
           <motion.h1 
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-extrabold text-white mb-4"
+            className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4"
           >
             Our Facilities
           </motion.h1>
@@ -24,7 +24,7 @@ const Facilities = () => {
             animate={{ opacity: 1, x: 0 }}
             className="relative"
           >
-            <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl border border-white/10">
+            <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 dark:border-white/10">
               <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop" alt="Maco Factory" className="w-full h-full object-cover" />
             </div>
           </motion.div>
@@ -33,8 +33,8 @@ const Facilities = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
           >
-            <h2 className="text-3xl font-bold text-white mb-6">State-of-the-Art Manufacturing</h2>
-            <div className="prose prose-lg text-gray-400">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-6">State-of-the-Art Manufacturing</h2>
+            <div className="prose prose-lg text-gray-600 dark:text-gray-400">
               <p className="mb-4">
                 Our factory, located about 50 Km North of Delhi at Sonepat in the Haryana state, spans a massive area equipped with the latest imported machinery from the U.K. and other global leaders.
               </p>
@@ -57,13 +57,13 @@ const Facilities = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="bg-[#111316] p-8 rounded-2xl border border-white/5 hover:border-white/20 hover:shadow-2xl transition-shadow text-center"
+              className="bg-gray-100 dark:bg-[#111316] p-8 rounded-2xl border border-white/5 hover:border-gray-300 dark:border-white/20 hover:shadow-2xl transition-shadow text-center"
             >
               <div className="mx-auto h-16 w-16 bg-[#ED1C24]/10 text-maco-red rounded-full flex items-center justify-center mb-6">
                 <item.icon className="h-8 w-8" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-3">{item.title}</h3>
-              <p className="text-gray-400">{item.desc}</p>
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{item.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400">{item.desc}</p>
             </motion.div>
           ))}
         </div>

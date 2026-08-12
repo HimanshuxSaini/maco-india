@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, ChevronDown, Sun, Moon } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTheme } from '../contexts/ThemeContext';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useTheme();
 
   const links = [
     { name: 'HOME', path: '/' },
@@ -18,7 +20,7 @@ const Navbar = () => {
 
   return (
     <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
-      <header className="w-full max-w-6xl bg-[#111316]/80 backdrop-blur-md shadow-lg border border-white/10 rounded-full">
+      <header className="w-full max-w-6xl bg-[#111316]/80 backdrop-blur-md shadow-lg border border-white/10 rounded-full transition-colors duration-300">
         <div className="px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex-shrink-0 flex items-center">
@@ -44,8 +46,15 @@ const Navbar = () => {
                 </Link>
               ))}
 
-              {/* Buy Products Button */}
-              <div className="flex items-center pl-6 border-l border-white/20">
+              {/* Theme Toggle & Buy Products Button */}
+              <div className="flex items-center pl-6 border-l border-white/20 space-x-4">
+                <button
+                  onClick={toggleTheme}
+                  className="p-2 rounded-full bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white transition-colors focus:outline-none"
+                  aria-label="Toggle Theme"
+                >
+                  {theme === 'light' ? <Moon className="w-4 h-4" /> : <Sun className="w-4 h-4" />}
+                </button>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -68,8 +77,15 @@ const Navbar = () => {
               </div>
             </nav>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center">
+            {/* Mobile Menu Button & Theme Toggle */}
+            <div className="md:hidden flex items-center space-x-3">
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-full bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white transition-colors focus:outline-none"
+                aria-label="Toggle Theme"
+              >
+                {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+              </button>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-gray-300 hover:text-white focus:outline-none"
@@ -87,7 +103,7 @@ const Navbar = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden border-t border-white/10 overflow-hidden rounded-b-3xl bg-[#111316]/95 backdrop-blur-md"
+              className="md:hidden border-t border-white/10 overflow-hidden rounded-b-3xl bg-[#111316]/95 backdrop-blur-md transition-colors duration-300"
             >
               <div className="px-4 pt-2 pb-6 space-y-1 sm:px-3">
                 {links.map((link) => (
