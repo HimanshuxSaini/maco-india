@@ -17,8 +17,19 @@ const ProductDetails = () => {
         setProduct(data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching product:', error);
-        setError('Product not found.');
+        console.error('Error fetching product, using fallback:', error);
+        const mockProducts = [
+          { _id: '1', title: 'Piston Pin', slug: 'piston-pin', image: '/maco-1.png', description: 'High precision piston pin designed for maximum performance.', features: ['High durability', 'Precision engineered', 'Heat treated'] },
+          { _id: '2', title: 'Crank Pin', slug: 'crank-pin', image: '/maco-2.png', description: 'Durable crank pin for automotive applications.', features: ['Wear resistant', 'Custom sizes available'] },
+          { _id: '3', title: 'Connecting Rod', slug: 'connecting-rod', image: '/maco-3.png', description: 'Heavy duty connecting rod.', features: ['Forged steel', 'High load capacity'] },
+          { _id: '4', title: 'Custom Component', slug: 'custom-component', image: '/maco-4.png', description: 'Special customized component based on client requirements.', features: ['Client specific design', 'Rigorous testing'] }
+        ];
+        const found = mockProducts.find(p => p.slug === slug);
+        if (found) {
+          setProduct(found);
+        } else {
+          setError('Product not found.');
+        }
         setLoading(false);
       }
     };
@@ -55,10 +66,13 @@ const ProductDetails = () => {
           <motion.div 
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
-            className="rounded-3xl overflow-hidden bg-gray-100 dark:bg-[#111316] border border-white/5 flex items-center justify-center p-12 h-[500px]"
+            className="rounded-3xl overflow-hidden bg-white dark:bg-black border border-white/5 flex items-center justify-center p-12 h-[500px]"
           >
-            <Settings2 className="h-48 w-48 text-gray-900 dark:text-white/10" />
-            {/* Real image would go here: <img src={product.image} alt={product.title} /> */}
+            {product.image ? (
+              <img src={product.image} alt={product.title} className="max-w-full max-h-full object-contain mix-blend-multiply dark:mix-blend-normal" />
+            ) : (
+              <Settings2 className="h-48 w-48 text-gray-900 dark:text-white/10" />
+            )}
           </motion.div>
 
           {/* Product Info Area */}

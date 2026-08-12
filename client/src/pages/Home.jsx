@@ -106,7 +106,15 @@ const Home = () => {
         setProducts(data);
         setLoadingProducts(false);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('Error fetching products, using fallback data:', error);
+        // Fallback data if server is down
+        const mockProducts = [
+          { _id: '1', title: 'Piston Pin', slug: 'piston-pin', image: '/maco-1.png' },
+          { _id: '2', title: 'Crank Pin', slug: 'crank-pin', image: '/maco-2.png' },
+          { _id: '3', title: 'Connecting Rod', slug: 'connecting-rod', image: '/maco-3.png' },
+          { _id: '4', title: 'Custom Component', slug: 'custom-component', image: '/maco-4.png' }
+        ];
+        setProducts(mockProducts);
         setLoadingProducts(false);
       }
     };

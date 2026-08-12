@@ -15,7 +15,14 @@ const Products = () => {
         setProducts(data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching products:', error);
+        console.error('Error fetching products, using fallback:', error);
+        const mockProducts = [
+          { _id: '1', title: 'Piston Pin', slug: 'piston-pin', image: '/maco-1.png', description: 'High precision piston pin designed for maximum performance.' },
+          { _id: '2', title: 'Crank Pin', slug: 'crank-pin', image: '/maco-2.png', description: 'Durable crank pin for automotive applications.' },
+          { _id: '3', title: 'Connecting Rod', slug: 'connecting-rod', image: '/maco-3.png', description: 'Heavy duty connecting rod.' },
+          { _id: '4', title: 'Custom Component', slug: 'custom-component', image: '/maco-4.png', description: 'Special customized component based on client requirements.' }
+        ];
+        setProducts(mockProducts);
         setLoading(false);
       }
     };
@@ -57,12 +64,15 @@ const Products = () => {
               transition={{ delay: idx * 0.1 }}
               className="bg-gray-100 dark:bg-[#111316] rounded-2xl overflow-hidden shadow-lg border border-white/5 hover:border-gray-300 dark:border-white/20 hover:shadow-2xl transition-all duration-300 group flex flex-col"
             >
-              <div className="h-56 bg-white dark:bg-black relative overflow-hidden">
+              <div className="h-56 bg-white dark:bg-black relative overflow-hidden flex items-center justify-center p-4">
                 <div className="absolute inset-0 bg-maco-red/10 group-hover:bg-transparent transition-colors z-10"></div>
-                {/* Fallback pattern if image is missing */}
-                <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-white/5">
-                  <Settings2 className="h-20 w-20 text-gray-900 dark:text-white/10" />
-                </div>
+                {product.image ? (
+                  <img src={product.image} alt={product.title} className="w-full h-full object-contain relative z-20 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply" />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-white/5 z-20">
+                    <Settings2 className="h-20 w-20 text-gray-900 dark:text-white/10" />
+                  </div>
+                )}
               </div>
               <div className="p-8 flex-grow flex flex-col">
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-maco-red transition-colors">
