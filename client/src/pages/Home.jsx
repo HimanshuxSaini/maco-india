@@ -127,7 +127,7 @@ const Home = () => {
     <div className="w-full">
       {/* Hero Section */}
       <section className="relative h-screen flex items-start pt-40 md:pt-48 bg-white dark:bg-black overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/hero-bg.png')] bg-cover bg-center opacity-60"></div>
+        <div className="absolute inset-0 bg-[url('/hero-bg1.png')] dark:bg-[url('/hero-bg.png')] bg-cover bg-center"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
