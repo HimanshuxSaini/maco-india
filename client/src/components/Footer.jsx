@@ -57,60 +57,37 @@ const Footer = () => {
                 <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <MapPin className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors pt-1 text-xs">
+                <div className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors pt-1 text-xs space-y-1">
                   <strong className="text-gray-900 dark:text-white">REGD. HEAD OFFICE:</strong><br />
-                  2-A/3, Asaf Ali Rd, Old Delhi, Turkman Gate, Chandni Chowk, New Delhi, Delhi, 110002
-                </span>
+                  2-A/3, Asaf Ali Rd, Old Delhi, Turkman Gate, Chandni Chowk, New Delhi, Delhi, 110002<br />
+                  <span className="inline-block mt-1">Tel: +91 11 23263672, 23273274</span><br />
+                  <span>Email: <a href="mailto:macoho@maco-india.com" className="hover:text-maco-red transition-colors">macoho@maco-india.com</a></span>
+                </div>
               </li>
               <li className="flex items-start group">
                 <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <Factory className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors pt-1 text-xs">
+                <div className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors pt-1 text-xs space-y-1">
                   <strong className="text-gray-900 dark:text-white">WORK OFFICE:</strong><br />
-                  E-24 Industrial Area, Sonepat - 131001 (Haryana), India
-                </span>
-              </li>
-              <li className="flex items-center group">
-                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
-                  <Phone className="h-5 w-5 text-maco-red" />
+                  E-24 Industrial Area, Sonepat - 131001 (Haryana), India<br />
+                  <span className="inline-block mt-1">Tel: +91 130 2212520, 2212199 | Fax: +91 130 2212407</span><br />
+                  <span>Email: <a href="mailto:maco@maco-india.com" className="hover:text-maco-red transition-colors">maco@maco-india.com</a></span>
                 </div>
-                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">+91 11 23263672, 23273274</span>
               </li>
-              <li className="flex items-center group">
-                <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
-                  <Mail className="h-5 w-5 text-maco-red" />
-                </div>
-                <a href="mailto:macoho@maco-india.com" className="hover:text-maco-red transition-colors">macoho@maco-india.com</a>
-              </li>
-              <li className="flex items-center group">
+              <li className="flex items-center group pt-2">
                 <div className="bg-gray-200 dark:bg-white/5 p-2 rounded-lg group-hover:bg-maco-red/10 transition-colors mr-3 shrink-0">
                   <Clock className="h-5 w-5 text-maco-red" />
                 </div>
-                <span className="group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">Mon - Sat: 9:00 AM - 6:00 PM</span>
+                <span className="text-xs group-hover:text-gray-800 dark:group-hover:text-gray-200 transition-colors">Mon - Sat: 9:00 AM - 6:00 PM</span>
               </li>
             </ul>
           </div>
 
-          {/* Newsletter & Map */}
+          {/* Map & Newsletter */}
           <div>
-            <h4 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white tracking-wide">Stay Updated</h4>
-            <form className="flex mb-8" onSubmit={(e) => e.preventDefault()}>
-              <input 
-                type="email" 
-                placeholder="Email address" 
-                className="bg-white dark:bg-[#1a1c23] border border-gray-200 dark:border-white/10 text-sm text-gray-900 dark:text-white px-4 py-3 w-full rounded-l-lg focus:outline-none focus:border-maco-red/50 transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600" 
-              />
-              <button 
-                type="submit" 
-                className="bg-maco-red hover:bg-red-700 text-white px-5 py-3 rounded-r-lg transition-colors flex items-center justify-center group"
-              >
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </form>
-
-            <h4 className="text-sm font-semibold mb-3 text-gray-600 dark:text-gray-400 uppercase tracking-widest">Our Locations</h4>
-            <div className="space-y-4">
+            <h4 className="text-lg font-semibold mb-6 text-gray-900 dark:text-white tracking-wide">Our Locations</h4>
+            <div className="space-y-4 mb-8">
               {/* Head Office Map */}
               <div>
                 <p className="text-xs text-maco-red mb-1 font-medium tracking-wide">HEAD OFFICE</p>
@@ -145,6 +122,21 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+
+            <h4 className="text-sm font-semibold mb-3 text-gray-600 dark:text-gray-400 uppercase tracking-widest">Stay Updated</h4>
+            <form className="flex" onSubmit={(e) => e.preventDefault()}>
+              <input 
+                type="email" 
+                placeholder="Email address" 
+                className="bg-white dark:bg-[#1a1c23] border border-gray-200 dark:border-white/10 text-sm text-gray-900 dark:text-white px-4 py-3 w-full rounded-l-lg focus:outline-none focus:border-maco-red/50 transition-colors placeholder:text-gray-400 dark:placeholder:text-gray-600" 
+              />
+              <button 
+                type="submit" 
+                className="bg-maco-red hover:bg-red-700 text-white px-5 py-3 rounded-r-lg transition-colors flex items-center justify-center group"
+              >
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+            </form>
           </div>
           
         </div>

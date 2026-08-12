@@ -36,9 +36,9 @@ const Products = () => {
   return (
     <div className="pt-20 pb-20 bg-gray-50 dark:bg-[#0a0a0a] min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         <div className="text-center mb-16">
-          <motion.h1 
+          <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4"
@@ -53,7 +53,7 @@ const Products = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product, idx) => (
-            <motion.div 
+            <motion.div
               key={product._id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -77,7 +77,7 @@ const Products = () => {
                 <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3 flex-grow">
                   {product.description}
                 </p>
-                <Link 
+                <Link
                   to={`/products/${product.slug}`}
                   className="inline-flex items-center font-semibold text-maco-red hover:text-red-700 transition-colors mt-auto"
                 >

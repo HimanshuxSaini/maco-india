@@ -169,6 +169,14 @@ const Contact = () => {
                   <MapPin className="h-5 w-5 mr-3 mt-0.5 text-maco-red shrink-0" />
                   <span className="text-gray-600 dark:text-gray-300">E-24 Industrial Area, Sonepat - 131001 (Haryana), India</span>
                 </li>
+                <li className="flex items-center">
+                  <Phone className="h-5 w-5 mr-3 text-maco-red shrink-0" />
+                  <span className="text-gray-600 dark:text-gray-300">Tel: +91 130 2212520, 2212199 | Fax: +91 130 2212407</span>
+                </li>
+                <li className="flex items-center">
+                  <Mail className="h-5 w-5 mr-3 text-maco-red shrink-0" />
+                  <a href="mailto:maco@maco-india.com" className="text-gray-600 dark:text-gray-300 hover:text-maco-red transition-colors">maco@maco-india.com</a>
+                </li>
               </ul>
               <div className="w-full h-48 rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 relative group">
                 <iframe 
