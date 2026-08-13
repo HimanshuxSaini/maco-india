@@ -6,91 +6,86 @@ import { ArrowRight, Settings2 } from 'lucide-react';
 import { products as staticProducts } from '../data/products';
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true);
+ const [products, setProducts] = useState([]);
+ const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const { data } = await axios.get('http://localhost:5000/api/products');
-        if (data.length === 0) throw new Error('Database empty, using fallback');
-        setProducts(data);
-        setLoading(false);
-      } catch (error) {
-        console.error('Error fetching products, using fallback:', error);
-        setProducts(staticProducts);
-        setLoading(false);
-      }
-    };
-    fetchProducts();
-  }, []);
+ useEffect(() => {
+ const fetchProducts = async () => {
+ try {
+ const { data } = await axios.get('http://localhost:5000/api/products');
+ if (data.length === 0) throw new Error('Database empty, using fallback');
+ setProducts(data);
+ setLoading(false);
+ } catch (error) {
+ console.error('Error fetching products, using fallback:', error);
+ setProducts(staticProducts);
+ setLoading(false);
+ }
+ };
+ fetchProducts();
+ }, []);
 
-  if (loading) {
-    return (
-      <div className="min-h-screen flex items-center justify-center">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-maco-blue"></div>
-      </div>
-    );
-  }
+ if (loading) {
+ return (
+ <div className="min-h-screen flex items-center justify-center">
+ <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-maco-blue"></div>
+ </div>
+ );
+ }
 
-  return (
-    <div className="pt-20 pb-20 bg-gray-50 dark:bg-[#0a0a0a] min-h-screen">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+ return (
+ <div className="pt-20 pb-20 bg-gray-50 min-h-screen">
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className="text-center mb-16">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white mb-4"
-          >
-            Our Products
-          </motion.h1>
-          <div className="h-1 w-24 bg-maco-red mx-auto mb-6"></div>
-          <p className="max-w-2xl mx-auto text-lg text-gray-600 dark:text-gray-400">
-            Discover our premium range of precision-engineered automotive components designed for maximum performance and durability.
-          </p>
-        </div>
+ <div className="text-center mb-16">
+ <motion.h1
+ initial={{ opacity: 0, y: -20 }}
+ animate={{ opacity: 1, y: 0 }}
+ className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"
+ >
+ Our Products
+ </motion.h1>
+ <div className="h-1 w-24 bg-maco-red mx-auto mb-6"></div>
+ <p className="max-w-2xl mx-auto text-lg text-gray-600 ">
+ Discover our premium range of precision-engineered automotive components designed for maximum performance and durability.
+ </p>
+ </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product, idx) => (
-            <motion.div
-              key={product._id}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: idx * 0.1 }}
-              className="bg-gray-100 dark:bg-[#111316] rounded-2xl overflow-hidden shadow-lg border border-white/5 hover:border-gray-300 dark:border-white/20 hover:shadow-2xl transition-all duration-300 group flex flex-col"
-            >
-              <div className="h-56 bg-white dark:bg-black relative overflow-hidden flex items-center justify-center p-4">
-                <div className="absolute inset-0 bg-maco-red/10 group-hover:bg-transparent transition-colors z-10"></div>
-                {product.image ? (
-                  <img src={product.image} alt={product.title} className="w-full h-full object-contain relative z-20 group-hover:scale-110 transition-transform duration-500 mix-blend-multiply" />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-200 dark:bg-white/5 z-20">
-                    <Settings2 className="h-20 w-20 text-gray-900 dark:text-white/10" />
-                  </div>
-                )}
-              </div>
-              <div className="p-8 flex-grow flex flex-col">
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-maco-red transition-colors">
-                  {product.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-6 line-clamp-3 flex-grow">
-                  {product.description}
-                </p>
-                <Link
-                  to={`/products/${product.slug}`}
-                  className="inline-flex items-center font-semibold text-maco-red hover:text-red-700 transition-colors mt-auto"
-                >
-                  View Details <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+ <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+ {products.map((product, idx) => (
+ <Link 
+ key={product._id}
+ to={`/products/${product.slug}`}
+ className="block group"
+ >
+ <motion.div 
+ initial={{ opacity: 0, scale: 0.95 }}
+ animate={{ opacity: 1, scale: 1 }}
+ transition={{ delay: idx * 0.05 }}
+ className="bg-white rounded-xl overflow-hidden border border-[#ED1C24]/30 group-hover:border-[#ED1C24] group-hover:shadow-[0_0_15px_rgba(237,28,36,0.3)] transition-all duration-300 flex flex-col items-center justify-center p-6 text-center h-full"
+ >
+ <div className="h-40 md:h-56 w-full flex items-center justify-center mb-4 relative z-10 bg-[#f4f4f4] rounded-lg p-4 shadow-inner">
+ <img 
+ src={product.image || `https://placehold.co/200x200/f4f4f4/1a1c23?text=${encodeURIComponent(product.title)}`}
+ alt={product.title}
+ className="max-h-full max-w-full object-contain transition-transform duration-500 group-hover:scale-110 mix-blend-multiply"
+ onError={(e) => {
+ e.target.onerror = null; 
+ e.target.src = `https://placehold.co/200x200/ffffff/1a1c23?text=${encodeURIComponent(product.title)}`;
+ }}
+ />
+ </div>
+ <h3 className="text-sm md:text-base font-semibold text-gray-900 group-hover:text-maco-red transition-colors relative z-10">
+ {product.title}
+ </h3>
+ </motion.div>
+ </Link>
+ ))}
+ </div>
 
-      </div>
-    </div>
-  );
+ </div>
+ </div>
+ );
 };
 
 export default Products;
