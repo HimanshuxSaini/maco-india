@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Settings2 } from 'lucide-react';
+import { ArrowRight, Settings2, ChevronDown } from 'lucide-react';
 import { products as staticProducts } from '../data/products';
 
 const Products = () => {
@@ -88,8 +88,24 @@ const Products = () => {
  </Link>
  </motion.div>
 
-
  </div>
+
+ {/* Scroll Down Indicator */}
+ <motion.div
+ initial={{ opacity: 0 }}
+ animate={{ opacity: 1 }}
+ transition={{ delay: 1, duration: 1 }}
+ className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer group z-20"
+ onClick={() => window.scrollTo({ top: window.innerHeight - 100, behavior: 'smooth' })}
+ >
+ <span className="text-xs font-bold tracking-[0.2em] text-gray-900 mb-2">SCROLL DOWN</span>
+ <motion.div
+ animate={{ y: [0, 10, 0] }}
+ transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+ >
+ <ChevronDown className="w-6 h-6 text-gray-900" />
+ </motion.div>
+ </motion.div>
  </section>
 
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
