@@ -117,9 +117,14 @@ const Products = () => {
  }}
  />
  </div>
- <h3 className="text-sm md:text-base font-semibold text-gray-900 group-hover:text-maco-red transition-colors relative z-10">
+ <h3 className="text-sm md:text-base font-semibold text-gray-900 group-hover:text-maco-red transition-colors relative z-10 flex-grow flex items-center">
  {product.title}
  </h3>
+ <div className="mt-4 opacity-50 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
+ <span className="inline-flex items-center text-sm font-bold text-black group-hover:text-maco-red bg-gray-200 group-hover:bg-maco-red/10 px-4 py-1.5 rounded-full transition-colors duration-300">
+ Read More <ArrowRight className="w-4 h-4 ml-1" />
+ </span>
+ </div>
  </motion.div>
  </Link>
  ))}
