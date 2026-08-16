@@ -34,23 +34,65 @@ const Products = () => {
  }
 
  return (
- <div className="pt-20 pb-20 bg-gray-50 min-h-screen">
- <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
- <div className="text-center mb-16">
- <motion.h1
+ <div className="pb-20 bg-gray-50 min-h-screen">
+ {/* Hero Section */}
+ <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white overflow-hidden border-b border-gray-100 flex flex-col justify-center min-h-screen">
+ {/* Subtle grid pattern background */}
+ <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+ 
+ {/* Decorative glowing blobs */}
+ <div className="absolute top-0 right-0 -mr-40 -mt-40 w-[500px] h-[500px] rounded-full bg-maco-red/5 blur-[80px]"></div>
+ <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-[400px] h-[400px] rounded-full bg-gray-200/50 blur-[80px]"></div>
+ 
+ <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+ <motion.div
  initial={{ opacity: 0, y: -20 }}
  animate={{ opacity: 1, y: 0 }}
- className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-4"
+ transition={{ duration: 0.5 }}
+ className="inline-flex items-center px-4 py-2 rounded-full bg-maco-red/10 border border-maco-red/20 mb-8 mx-auto"
  >
- Our Products
+ <span className="w-2 h-2 rounded-full bg-maco-red mr-2 animate-pulse"></span>
+ <span className="text-maco-red text-xs md:text-sm font-bold tracking-widest uppercase">Our Products</span>
+ </motion.div>
+ 
+ <motion.h1 
+ initial={{ opacity: 0, y: 20 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6, delay: 0.1 }}
+ className="text-5xl md:text-6xl lg:text-7xl font-black text-gray-900 mb-8 tracking-tight leading-[1.1]"
+ >
+ Precision Engineered <br className="hidden md:block" />
+ <span className="text-transparent bg-clip-text bg-gradient-to-r from-maco-red to-red-600">Components</span>
  </motion.h1>
- <div className="h-1 w-24 bg-maco-red mx-auto mb-6"></div>
- <p className="max-w-2xl mx-auto text-lg text-gray-600 ">
- Discover our premium range of precision-engineered automotive components designed for maximum performance and durability.
- </p>
- </div>
+ 
+ <motion.p 
+ initial={{ opacity: 0, y: 20 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6, delay: 0.2 }}
+ className="text-lg md:text-xl text-gray-600 leading-relaxed font-medium max-w-3xl mx-auto"
+ >
+ Discover our premium range of precision-engineered automotive components designed for maximum performance, durability, and reliability.
+ </motion.p>
 
+ <motion.div
+ initial={{ opacity: 0, y: 20 }}
+ animate={{ opacity: 1, y: 0 }}
+ transition={{ duration: 0.6, delay: 0.3 }}
+ className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10"
+ >
+ <button onClick={() => window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' })} className="px-8 py-4 bg-maco-red text-white rounded-full font-bold text-lg hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto">
+ Explore Catalog
+ </button>
+ <Link to="/contact" className="px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-bold text-lg hover:border-maco-red hover:text-maco-red transition-all shadow-sm hover:shadow-md w-full sm:w-auto">
+ Request a Quote
+ </Link>
+ </motion.div>
+
+
+ </div>
+ </section>
+
+ <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-16">
  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
  {products.map((product, idx) => (
  <Link 

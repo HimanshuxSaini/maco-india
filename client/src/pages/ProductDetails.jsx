@@ -50,7 +50,7 @@ const ProductDetails = () => {
  }
 
  return (
- <div className="pt-10 pb-20 bg-gray-50 min-h-screen">
+ <div className="pt-32 pb-20 bg-gray-50 min-h-screen">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  
  <Link to="/products" className="inline-flex items-center text-sm font-medium text-gray-600 hover:text-maco-red transition-colors mb-10">

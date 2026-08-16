@@ -134,7 +134,7 @@ const Home = () => {
  <div className="absolute inset-0 bg-[url('/hero-bg1.png')] bg-cover bg-center"></div>
  <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
 
- <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+ <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
  <motion.div
  initial="hidden"
  animate="visible"
@@ -314,7 +314,7 @@ const Home = () => {
  <section className="py-20 bg-gray-50 ">
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
  <div className="text-center mb-16">
- <h2 className="text-3xl font-bold text-gray-900 ">Why Choose MACO INDIA?</h2>
+ <h2 className="text-3xl font-bold text-gray-900 ">Why Choose MACO PRIVATE LIMITED?</h2>
  <div className="mt-2 h-1 w-20 bg-maco-red mx-auto"></div>
  </div>
 

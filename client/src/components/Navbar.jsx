@@ -11,20 +11,19 @@ const Navbar = () => {
  { name: 'HOME', path: '/' },
  { name: 'ABOUT US', path: '/about' },
  { name: 'PRODUCTS', path: '/products' },
- { name: 'MANUFACTURING', path: '/facilities' },
+ { name: 'FACILITIES', path: '/facilities' },
  { name: 'QUALITY', path: '/quality' },
- { name: 'CONTACT', path: '/contact' },
+ { name: 'CONTACT US', path: '/contact' },
  ];
 
  return (
- <div className="fixed top-4 left-0 right-0 z-50 flex justify-center px-4">
- <header className="w-full max-w-6xl bg-[#111316]/80 backdrop-blur-md shadow-lg border border-white/10 rounded-full transition-colors duration-300">
- <div className="px-6 lg:px-8">
- <div className="flex justify-between items-center h-16">
- <div className="flex-shrink-0 flex items-center">
- <Link to="/" className="flex items-center gap-3">
- <img src="/maco logo white.png" alt="MACO Logo" className="h-8 md:h-10 w-auto object-contain" />
- <span className="text-xl md:text-2xl font-black text-maco-red tracking-widest">MACO</span>
+ <div className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm border-b border-gray-200 transition-colors duration-300">
+ <div className="w-full px-4 sm:px-6 lg:px-8">
+ <div className="flex justify-between items-center h-24">
+ <div className="flex items-center">
+ <div className="flex-shrink-0 flex items-center pr-8 mr-8 relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:h-12 after:w-px after:bg-gray-300">
+ <Link to="/" className="flex items-center">
+ <img src="/maco logo white.png" alt="MACO Logo" className="h-16 md:h-20 w-auto object-contain" />
  </Link>
  </div>
  
@@ -34,17 +33,20 @@ const Navbar = () => {
  <Link
  key={link.name}
  to={link.path}
- className={`text-xs font-semibold tracking-wider transition-colors duration-200 h-16 flex items-center border-b-2 ${
+ className={`text-sm font-bold tracking-wide transition-colors duration-200 h-24 flex items-center border-b-2 gap-1 ${
  location.pathname === link.path 
  ? 'text-maco-red border-maco-red' 
- : 'text-gray-300 hover:text-white border-transparent'
+ : 'text-gray-600 hover:text-gray-900 border-transparent'
  }`}
  >
  {link.name}
+ {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
  </Link>
  ))}
+ </nav>
+ </div>
 
- <div className="flex items-center pl-6 border-l border-white/20 space-x-4">
+ <div className="hidden md:flex items-center pl-6 space-x-4">
  <motion.div
  whileHover={{ scale: 1.05 }}
  whileTap={{ scale: 0.95 }}
@@ -65,13 +67,12 @@ const Navbar = () => {
  </a>
  </motion.div>
  </div>
- </nav>
 
  {/* Mobile Menu Button */}
  <div className="md:hidden flex items-center space-x-3">
  <button
  onClick={() => setIsOpen(!isOpen)}
- className="text-gray-300 hover:text-white focus:outline-none"
+ className="text-gray-600 hover:text-gray-900 focus:outline-none"
  >
  {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
  </button>
@@ -86,7 +87,7 @@ const Navbar = () => {
  initial={{ opacity: 0, height: 0 }}
  animate={{ opacity: 1, height: 'auto' }}
  exit={{ opacity: 0, height: 0 }}
- className="md:hidden border-t border-white/10 overflow-hidden rounded-b-3xl bg-[#111316]/95 backdrop-blur-md transition-colors duration-300"
+ className="md:hidden border-t border-gray-100 overflow-hidden bg-white shadow-lg transition-colors duration-300"
  >
  <div className="px-4 pt-2 pb-6 space-y-1 sm:px-3">
  {links.map((link) => (
@@ -94,17 +95,18 @@ const Navbar = () => {
  key={link.name}
  to={link.path}
  onClick={() => setIsOpen(false)}
- className={`block px-3 py-2 rounded-lg text-sm font-semibold tracking-wide ${
+ className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold tracking-wide ${
  location.pathname === link.path
- ? 'text-maco-red bg-white/5'
- : 'text-gray-300 hover:text-white hover:bg-white/5'
+ ? 'text-maco-red bg-red-50'
+ : 'text-gray-600 hover:bg-gray-50'
  }`}
  >
  {link.name}
+ {link.hasDropdown && <ChevronDown className="h-4 w-4" />}
  </Link>
  ))}
  {/* Mobile Buy Products Button */}
- <div className="mt-4 pt-4 border-t border-white/10 px-3 pb-2">
+ <div className="mt-4 pt-4 border-t border-gray-100 px-3 pb-2">
  <motion.div whileTap={{ scale: 0.98 }}>
  <a
  href="https://macro-project-five.vercel.app/"
@@ -127,7 +129,6 @@ const Navbar = () => {
  </motion.div>
  )}
  </AnimatePresence>
- </header>
  </div>
  );
 };
