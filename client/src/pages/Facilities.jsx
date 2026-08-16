@@ -57,9 +57,7 @@ const Facilities = () => {
  <button onClick={() => window.scrollBy({ top: window.innerHeight - 100, behavior: 'smooth' })} className="px-8 py-4 bg-maco-red text-white rounded-full font-bold text-lg hover:bg-red-700 transition-colors shadow-lg hover:shadow-xl w-full sm:w-auto">
  Explore Facilities
  </button>
- <Link to="/contact" className="px-8 py-4 bg-white text-gray-900 border border-gray-200 rounded-full font-bold text-lg hover:border-maco-red hover:text-maco-red transition-all shadow-sm hover:shadow-md w-full sm:w-auto">
- Schedule a Visit
- </Link>
+
  </motion.div>
  </div>
 
@@ -88,8 +86,19 @@ const Facilities = () => {
  animate={{ opacity: 1, x: 0 }}
  className="relative"
  >
- <div className="aspect-w-4 aspect-h-3 rounded-2xl overflow-hidden shadow-2xl border border-gray-200 ">
- <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2940&auto=format&fit=crop" alt="Maco Factory" className="w-full h-full object-cover" />
+ <div className="grid grid-cols-2 gap-4 lg:gap-6">
+ <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+ <img src="/factory_floor_3.png" alt="Factory Floor" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+ </div>
+ <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200 mt-8 lg:mt-12">
+ <img src="/industrial_machine_1.png" alt="Industrial Machine" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+ </div>
+ <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200 -mt-8 lg:-mt-12">
+ <img src="/industrial_machine_2.png" alt="Industrial Machine" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+ </div>
+ <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+ <img src="/factory_machine_4.png" alt="Factory Machine" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
+ </div>
  </div>
  </motion.div>
 
