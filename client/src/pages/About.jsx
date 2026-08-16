@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Shield, Target, Users, MapPin, Globe, Award, 
-  CheckCircle2, Settings, Wrench, Cog, Zap
+import {
+  Shield, Target, Users, MapPin, Globe, Award,
+  CheckCircle2, Settings, Wrench, Cog, Zap, ChevronDown
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
@@ -35,16 +35,18 @@ const About = () => {
   return (
     <div className="w-full bg-white overflow-hidden">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white overflow-hidden border-b border-gray-100 flex flex-col justify-center min-h-[75vh]">
+      <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white overflow-hidden flex flex-col justify-center min-h-screen">
         {/* Subtle grid pattern background */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]"></div>
-        
+
         {/* Decorative glowing blobs */}
         <div className="absolute top-0 right-0 -mr-40 -mt-40 w-[500px] h-[500px] rounded-full bg-maco-red/5 blur-[80px]"></div>
         <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-[400px] h-[400px] rounded-full bg-gray-200/50 blur-[80px]"></div>
-        
+
+        {/* Fade out to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            
+
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -54,8 +56,8 @@ const About = () => {
             <span className="w-2 h-2 rounded-full bg-maco-red mr-2 animate-pulse"></span>
             <span className="text-maco-red text-xs md:text-sm font-bold tracking-widest uppercase">About Our Company</span>
           </motion.div>
-          
-          <motion.h1 
+
+          <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
@@ -64,8 +66,8 @@ const About = () => {
             Engineering Excellence <br className="hidden md:block" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-maco-red to-red-600">Since 1956</span>
           </motion.h1>
-          
-          <motion.p 
+
+          <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -73,7 +75,7 @@ const About = () => {
           >
             <strong>MACO Private Limited</strong> is an established Indian manufacturer of precision automotive and engine components, delivering uncompromising quality and reliability to the global engineering industry.
           </motion.p>
-          
+
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -89,9 +91,9 @@ const About = () => {
                 <p className="font-bold text-gray-900 text-lg">ISO Standards</p>
               </div>
             </div>
-            
+
             <div className="w-px h-12 bg-gray-300 hidden md:block"></div>
-            
+
             <div className="flex items-center gap-4">
               <div className="flex-shrink-0 w-14 h-14 rounded-full bg-white shadow-md flex items-center justify-center border border-gray-100">
                 <Globe className="w-6 h-6 text-maco-red" />
@@ -115,13 +117,29 @@ const About = () => {
             </div>
           </motion.div>
         </div>
+
+        {/* Scroll Down Indicator */}
+        <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1, duration: 1 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center cursor-pointer group z-20"
+        onClick={() => window.scrollTo({ top: window.innerHeight - 100, behavior: 'smooth' })}
+        >
+        <motion.div
+        animate={{ y: [0, 10, 0] }}
+        transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+        >
+        <ChevronDown className="w-6 h-6 text-gray-900" />
+        </motion.div>
+        </motion.div>
       </section>
 
       {/* Legacy & History Section */}
       <section className="py-20 lg:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
@@ -143,8 +161,8 @@ const About = () => {
                 </p>
               </div>
             </motion.div>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -190,7 +208,7 @@ const About = () => {
       <section className="py-20 bg-gray-50 border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <motion.h2 
+            <motion.h2
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true }}
@@ -207,7 +225,7 @@ const About = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Category 1 */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -223,7 +241,7 @@ const About = () => {
             </motion.div>
 
             {/* Category 2 */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -240,7 +258,7 @@ const About = () => {
             </motion.div>
 
             {/* Category 3 */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -257,7 +275,7 @@ const About = () => {
             </motion.div>
 
             {/* Category 4 */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -273,7 +291,7 @@ const About = () => {
               </p>
             </motion.div>
           </div>
-          
+
           <div className="text-center mt-16">
             <Link to="/products" className="group relative inline-flex items-center justify-center overflow-hidden bg-gradient-to-r from-maco-red to-red-700 text-white text-sm md:text-base font-black tracking-[0.2em] px-8 py-4 rounded-full shadow-[0_0_20px_rgba(220,38,38,0.4)] hover:shadow-[0_0_30px_rgba(220,38,38,0.6)] border border-red-500/50 transition-shadow duration-300 uppercase">
               <span className="relative z-10 flex items-center gap-2">
@@ -293,7 +311,7 @@ const About = () => {
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-64 h-64 bg-maco-red rounded-full opacity-10 blur-3xl"></div>
             <div className="absolute bottom-0 left-0 w-64 h-64 bg-white rounded-full opacity-5 blur-3xl"></div>
-            
+
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 relative z-10 items-center">
               <div>
                 <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">Quality at the Core</h2>
@@ -350,7 +368,7 @@ const About = () => {
           <div className="bg-white p-8 rounded-2xl shadow-sm border border-gray-200 inline-block">
             <h3 className="text-2xl font-black text-gray-900 tracking-wider mb-2">MACO PRIVATE LIMITED</h3>
             <p className="text-maco-red font-bold tracking-widest uppercase text-sm">
-              Precision Engineering. Reliable Performance.<br/>Built on Experience Since 1956.
+              Precision Engineering. Reliable Performance.<br />Built on Experience Since 1956.
             </p>
           </div>
         </div>
