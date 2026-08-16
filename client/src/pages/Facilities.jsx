@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Facilities = () => {
  return (
- <div className="pb-20">
+ <div className="pb-20 bg-gray-50 min-h-screen">
  {/* Hero Section */}
  <section className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 bg-white overflow-hidden flex flex-col justify-center min-h-screen">
  {/* Subtle grid pattern background */}
@@ -16,7 +16,7 @@ const Facilities = () => {
  <div className="absolute bottom-0 left-0 -ml-40 -mb-40 w-[400px] h-[400px] rounded-full bg-gray-200/50 blur-[80px]"></div>
 
  {/* Fade out to next section */}
- <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent pointer-events-none z-10"></div>
+ <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-gray-50 to-transparent pointer-events-none z-10"></div>
  
  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
  <motion.div
@@ -80,40 +80,62 @@ const Facilities = () => {
 
  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
- <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
- <motion.div 
- initial={{ opacity: 0, x: -30 }}
- animate={{ opacity: 1, x: 0 }}
- className="relative"
- >
- <div className="grid grid-cols-2 gap-4 lg:gap-6">
- <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200">
- <img src="/factory_floor_3.png" alt="Factory Floor" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
- </div>
- <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200 mt-8 lg:mt-12">
- <img src="/industrial_machine_1.png" alt="Industrial Machine" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
- </div>
- <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200 -mt-8 lg:-mt-12">
- <img src="/industrial_machine_2.png" alt="Industrial Machine" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
- </div>
- <div className="aspect-square rounded-2xl overflow-hidden shadow-xl border border-gray-200">
- <img src="/factory_machine_4.png" alt="Factory Machine" className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
- </div>
+ {/* Row 1 */}
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+ <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+ <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+ <img src="/factory_floor_3.png" alt="Factory Floor" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
  </div>
  </motion.div>
-
- <motion.div 
- initial={{ opacity: 0, x: 30 }}
- animate={{ opacity: 1, x: 0 }}
- >
- <h2 className="text-3xl font-bold text-gray-900 mb-6">State-of-the-Art Manufacturing</h2>
- <div className="prose prose-lg text-gray-600 ">
- <p className="mb-4">
+ <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+ <h2 className="text-4xl font-bold text-gray-900 mb-6">State-of-the-Art Infrastructure</h2>
+ <p className="text-xl leading-relaxed text-gray-600">
  Our factory, located about 50 Km North of Delhi at Sonepat in the Haryana state, spans a massive area equipped with the latest imported machinery from the U.K. and other global leaders.
  </p>
- <p>
- We continuously upgrade our infrastructure to ensure maximum efficiency, precision, and the capacity to handle bulk orders while maintaining the highest quality standards.
+ </motion.div>
+ </div>
+
+ {/* Row 2 (Reversed) */}
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+ <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="order-2 lg:order-1">
+ <h2 className="text-4xl font-bold text-gray-900 mb-6">High-Volume Capacity</h2>
+ <p className="text-xl leading-relaxed text-gray-600">
+ We continuously upgrade our infrastructure to ensure maximum efficiency, precision, and the capacity to handle bulk orders while maintaining the highest quality standards. Our advanced production lines are specifically optimized for the high-volume manufacturing of critical engine components, including our signature Piston Pins and Connecting Rod Kits.
  </p>
+ </motion.div>
+ <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="order-1 lg:order-2">
+ <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+ <img src="/industrial_machine_1.png" alt="Industrial Machine" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+ </div>
+ </motion.div>
+ </div>
+
+ {/* Row 3 */}
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+ <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+ <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+ <img src="/industrial_machine_2.png" alt="Industrial Machine" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
+ </div>
+ </motion.div>
+ <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+ <h2 className="text-4xl font-bold text-gray-900 mb-6">Self-Sufficient Ecosystem</h2>
+ <p className="text-xl leading-relaxed text-gray-600">
+ At MACO PRIVATE LIMITED, we maintain an entirely self-sufficient manufacturing ecosystem. From initial raw material testing in our in-house metallurgical laboratory to advanced heat treatment, precision grinding, and final automated inspection, every critical stage of production is executed under one roof. This vertically integrated approach gives us absolute control over the dimensional accuracy and surface finish of every single component.
+ </p>
+ </motion.div>
+ </div>
+
+ {/* Row 4 (Reversed) */}
+ <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32">
+ <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="order-2 lg:order-1">
+ <h2 className="text-4xl font-bold text-gray-900 mb-6">Engineered for the Future</h2>
+ <p className="text-xl leading-relaxed text-gray-600">
+ Our facility is not just built for today's demands, but engineered for the future of the automotive industry. With strict adherence to global ISO certification standards and a dedicated team constantly refining our CNC machining processes, our Sonepat plant stands as a testament to our legacy of engineering excellence and our commitment to powering vehicles worldwide.
+ </p>
+ </motion.div>
+ <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }} className="order-1 lg:order-2">
+ <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200">
+ <img src="/factory_machine_4.png" alt="Factory Machine" className="w-full h-full object-cover hover:scale-105 transition-transform duration-700" />
  </div>
  </motion.div>
  </div>
