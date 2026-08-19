@@ -5,7 +5,7 @@ import FloatingActions from '../components/FloatingActions';
 
 const MainLayout = ({ children }) => {
  return (
- <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300">
+ <div className="flex flex-col min-h-screen bg-gray-50 text-gray-900 transition-colors duration-300 w-full max-w-[100vw] overflow-x-hidden">
  <Navbar />
  <main className="flex-grow">
  {children}

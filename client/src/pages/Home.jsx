@@ -141,7 +141,7 @@ const Home = () => {
  variants={fadeIn}
  className="max-w-xl text-white"
  >
- <h1 className="text-5xl md:text-6xl lg:text-[4rem] font-bold tracking-tight mb-4 leading-[1.1]">
+ <h1 className="text-4xl sm:text-5xl md:text-[4rem] font-bold tracking-tight mb-4 leading-[1.1]">
  ENGINEERED FOR<br />PERFORMANCE
  </h1>
  <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-lg">

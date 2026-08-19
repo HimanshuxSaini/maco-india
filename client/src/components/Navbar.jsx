@@ -23,7 +23,7 @@ const Navbar = () => {
  <div className="flex items-center">
  <div className="flex-shrink-0 flex items-center pr-8 mr-8 relative after:content-[''] after:absolute after:right-0 after:top-1/2 after:-translate-y-1/2 after:h-12 after:w-px after:bg-gray-300">
  <Link to="/" className="flex items-center">
- <img src="/maco logo white.png" alt="MACO Logo" className="h-16 md:h-20 w-auto object-contain" />
+ <img src="/maco logo white.png" alt="MACO Logo" className="h-12 sm:h-16 md:h-20 w-auto object-contain" />
  </Link>
  </div>
  

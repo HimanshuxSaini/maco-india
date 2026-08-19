@@ -62,7 +62,7 @@ const ProductDetails = () => {
  <motion.div 
  initial={{ opacity: 0, x: -30 }}
  animate={{ opacity: 1, x: 0 }}
- className="rounded-3xl overflow-hidden bg-white border border-white/5 flex items-center justify-center p-12 h-[500px]"
+ className="rounded-3xl overflow-hidden bg-white border border-white/5 flex items-center justify-center p-12 h-[300px] lg:h-[500px]"
  >
  {product.image ? (
  <img src={product.image} alt={product.title} className="max-w-full max-h-full object-contain mix-blend-multiply " />
