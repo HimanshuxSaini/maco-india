@@ -376,9 +376,9 @@ const Home = () => {
  ))}
  </AnimatePresence>
  </div>
- <div className="absolute -bottom-6 -right-6 bg-maco-red text-gray-900 p-8 rounded-2xl shadow-xl z-20">
- <p className="text-4xl font-black">50+</p>
- <p className="text-sm font-medium uppercase tracking-wider">Years of Trust</p>
+ <div className="absolute -bottom-3 right-0 sm:-bottom-6 sm:-right-6 bg-maco-red text-gray-900 p-3 sm:p-8 rounded-lg sm:rounded-2xl shadow-xl z-20">
+ <p className="text-2xl sm:text-4xl font-black">50+</p>
+ <p className="text-[10px] sm:text-sm font-medium uppercase tracking-wider">Years of Trust</p>
  </div>
  </div>
  </motion.div>
