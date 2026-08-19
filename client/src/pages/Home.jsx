@@ -10,6 +10,16 @@ const fadeIn = {
  visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
 };
 
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
 const AnimatedCounter = ({ from = 0, to, duration = 2, suffix = "" }) => {
  const ref = useRef(null);
  const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -124,21 +134,24 @@ const Home = () => {
  return (
  <div className="w-full">
  {/* Hero Section */}
- <section className="relative min-h-[600px] h-[100dvh] md:h-screen flex items-end md:items-start pb-32 md:pb-0 pt-16 md:pt-48 bg-[#111] overflow-hidden">
- <div className="absolute inset-0 bg-[url('/hero-bg-mobile.png')] md:bg-[url('/hero-bg1.png')] bg-cover bg-[center_25%] md:bg-center"></div>
- <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent md:bg-none"></div>
- <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
+ <section className="relative min-h-[600px] h-[100dvh] lg:h-screen flex items-end lg:items-start pb-32 lg:pb-0 pt-16 lg:pt-28 xl:pt-48 bg-[#111] overflow-hidden">
+ <div className="absolute inset-0 bg-[url('/hero-bg-mobile.png')] lg:bg-[url('/hero-bg1.png')] bg-cover bg-[center_25%] lg:bg-center"></div>
+ <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent lg:bg-none"></div>
+ <div className="absolute inset-0 hidden lg:block bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
 
  <div className="relative z-10 w-full px-4 sm:px-6 lg:px-8">
  <motion.div
  initial="hidden"
  animate="visible"
- variants={fadeIn}
+ variants={staggerContainer}
  className="max-w-xl text-white"
  >
- <h1 className="text-4xl sm:text-5xl md:text-[4rem] font-bold tracking-tight mb-4 leading-[1.1]">
+ <motion.h1 
+ variants={fadeIn}
+ className="text-4xl sm:text-5xl md:text-6xl lg:text-5xl xl:text-[5rem] font-black tracking-tight leading-[1.1] mb-6 drop-shadow-lg"
+ >
  ENGINEERED FOR<br />PERFORMANCE
- </h1>
+ </motion.h1>
  <p className="text-lg md:text-xl text-gray-200 mb-10 leading-relaxed max-w-lg">
  70+ years of excellence in precision automotive component manufacturing.
  </p>

@@ -28,7 +28,7 @@ const Navbar = () => {
  </div>
  
  {/* Desktop Menu */}
- <nav className="hidden md:flex items-center space-x-8">
+ <nav className="hidden xl:flex items-center space-x-8">
  {links.map((link) => (
  <Link
  key={link.name}
@@ -46,7 +46,7 @@ const Navbar = () => {
  </nav>
  </div>
 
- <div className="hidden md:flex items-center pl-6 space-x-4">
+ <div className="hidden xl:flex items-center pl-6 space-x-4">
  <motion.div
  whileHover={{ scale: 1.05 }}
  whileTap={{ scale: 0.95 }}
@@ -69,7 +69,7 @@ const Navbar = () => {
  </div>
 
  {/* Mobile Menu Button */}
- <div className="md:hidden flex items-center space-x-3">
+ <div className="xl:hidden flex items-center space-x-3">
  <button
  onClick={() => setIsOpen(!isOpen)}
  className="text-gray-600 hover:text-gray-900 focus:outline-none"
@@ -87,7 +87,7 @@ const Navbar = () => {
  initial={{ opacity: 0, height: 0 }}
  animate={{ opacity: 1, height: 'auto' }}
  exit={{ opacity: 0, height: 0 }}
- className="md:hidden border-t border-gray-100 overflow-hidden bg-white shadow-lg transition-colors duration-300"
+ className="xl:hidden border-t border-gray-100 overflow-hidden bg-white shadow-lg transition-colors duration-300"
  >
  <div className="px-4 pt-2 pb-6 space-y-1 sm:px-3">
  {links.map((link) => (
