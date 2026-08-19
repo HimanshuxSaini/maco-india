@@ -130,7 +130,7 @@ const Home = () => {
  return (
  <div className="w-full">
  {/* Hero Section */}
- <section className="relative min-h-[600px] h-[85vh] md:h-screen flex items-end md:items-start pb-32 md:pb-0 pt-16 md:pt-48 bg-[#111] overflow-hidden">
+ <section className="relative min-h-[600px] h-[100dvh] md:h-screen flex items-end md:items-start pb-32 md:pb-0 pt-16 md:pt-48 bg-[#111] overflow-hidden">
  <div className="absolute inset-0 bg-[url('/hero-bg-mobile.png')] md:bg-[url('/hero-bg1.png')] bg-cover bg-[center_25%] md:bg-center"></div>
  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-transparent md:bg-none"></div>
  <div className="absolute inset-0 hidden md:block bg-gradient-to-r from-black/90 via-black/50 to-transparent"></div>
