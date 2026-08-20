@@ -256,10 +256,9 @@ const Home = () => {
  ) : (
  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
  {products.map((product, idx) => (
- <Link 
+ <div 
  key={product._id}
- to={`/products/${product.slug}`}
- className="block group"
+ className="block group cursor-default"
  >
  <motion.div 
  initial={{ opacity: 0, scale: 0.95 }}
@@ -283,7 +282,7 @@ const Home = () => {
  {product.title}
  </h3>
  </motion.div>
- </Link>
+ </div>
  ))}
  
  {/* Premium Read More Card */}
