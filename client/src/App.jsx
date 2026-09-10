@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import MainLayout from './layouts/MainLayout';
 import ScrollToTop from './components/ScrollToTop';
 
-// Lazy loaded page components for code-splitting
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
 const Products = React.lazy(() => import('./pages/Products'));
@@ -12,7 +11,6 @@ const Facilities = React.lazy(() => import('./pages/Facilities'));
 const Quality = React.lazy(() => import('./pages/Quality'));
 const Contact = React.lazy(() => import('./pages/Contact'));
 
-// Loading Fallback Component
 const PageLoader = () => (
   <div className="min-h-[70vh] flex items-center justify-center bg-gray-50">
     <div className="animate-spin rounded-full h-16 w-16 border-t-4 border-b-4 border-maco-red"></div>
