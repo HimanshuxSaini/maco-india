@@ -68,7 +68,7 @@ const predefinedKnowledge = [
  {
  id: 'contact',
  keywords: ['contact', 'location', 'where', 'address', 'phone', 'email', 'reach', 'call', 'map', 'directions', 'office', 'headquarters', 'mobile'],
- response: "Our Head Office is in New Delhi (2-A/3, Asaf Ali Rd), and our Work Office/Factory is located in Sonepat, Haryana. You can call us at +91 11 23263672 or email macoho@maco-india.com.",
+ response: "Our Head Office is in New Delhi (2A/3, 1st Floor, Kundan Mansion, Asaf Ali Rd), and our Work Office/Factory is located in Sonepat, Haryana. You can call us at +91 11 23263672 or email macoho@maco-india.com.",
  quickReplies: ["Book a Meeting", "Get a Quote", "About MACO"]
  },
  {

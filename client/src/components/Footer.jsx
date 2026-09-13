@@ -59,7 +59,7 @@ const Footer = () => {
                                 </div>
                                 <div className="group-hover:text-gray-800 :text-gray-200 transition-colors pt-1 text-xs space-y-1">
                                     <strong className="text-gray-900 ">REGD. HEAD OFFICE:</strong><br />
-                                    2-A/3, Asaf Ali Rd, Old Delhi, Turkman Gate, Chandni Chowk, New Delhi, Delhi, 110002<br />
+                                    2A/3, 1st Floor, Kundan Mansion, Asaf Ali Rd, New Delhi, Delhi 110002, India<br />
                                     <span className="inline-block mt-1">Tel: +91 11 23263672, 23273274</span><br />
                                     <span>Email: <a href="mailto:macoho@maco-india.com" className="hover:text-maco-red transition-colors">macoho@maco-india.com</a></span>
                                 </div>
@@ -93,7 +93,7 @@ const Footer = () => {
                                 <p className="text-xs text-maco-red mb-1 font-medium tracking-wide">HEAD OFFICE</p>
                                 <div className="w-full h-24 rounded-xl overflow-hidden border border-gray-200 relative group">
                                     <iframe
-                                        src="https://maps.google.com/maps?q=2-A/3,%20Asaf%20Ali%20Rd,%20Old%20Delhi,%20Turkman%20Gate,%20Chandni%20Chowk,%20New%20Delhi,%20Delhi,%20110002&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                        src="https://maps.google.com/maps?q=2A/3,%201st%20Floor,%20Kundan%20Mansion,%20Asaf%20Ali%20Rd,%20New%20Delhi,%20Delhi%20110002,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                         width="100%"
                                         height="100%"
                                         style={{ border: 0 }}

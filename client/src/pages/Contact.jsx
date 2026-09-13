@@ -131,7 +131,7 @@ const Contact = () => {
                             <ul className="space-y-4 mb-8 flex-grow">
                                 <li className="flex items-start">
                                     <MapPin className="h-5 w-5 mr-3 mt-0.5 text-maco-red shrink-0" />
-                                    <span className="text-gray-600 ">2-A/3, Asaf Ali Rd, Old Delhi, Turkman Gate, Chandni Chowk, New Delhi, Delhi, 110002</span>
+                                    <span className="text-gray-600 ">2A/3, 1st Floor, Kundan Mansion, Asaf Ali Rd, New Delhi, Delhi 110002, India</span>
                                 </li>
                                 <li className="flex items-center">
                                     <Phone className="h-5 w-5 mr-3 text-maco-red shrink-0" />
@@ -144,7 +144,7 @@ const Contact = () => {
                             </ul>
                             <div className="w-full h-48 rounded-2xl overflow-hidden border border-gray-200 relative group">
                                 <iframe
-                                    src="https://maps.google.com/maps?q=2-A/3,%20Asaf%20Ali%20Rd,%20Old%20Delhi,%20Turkman%20Gate,%20Chandni%20Chowk,%20New%20Delhi,%20Delhi,%20110002&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                                    src="https://maps.google.com/maps?q=2A/3,%201st%20Floor,%20Kundan%20Mansion,%20Asaf%20Ali%20Rd,%20New%20Delhi,%20Delhi%20110002,%20India&t=&z=15&ie=UTF8&iwloc=&output=embed"
                                     width="100%"
                                     height="100%"
                                     style={{ border: 0 }}
